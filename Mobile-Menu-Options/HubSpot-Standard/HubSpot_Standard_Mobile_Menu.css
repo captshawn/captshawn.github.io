@@ -1,0 +1,323 @@
+/* ==========================================================================
+   Mobile Menu - Hubspot Standard Toggle Menu
+   ========================================================================== */
+
+
+/**
+ * Special Note
+ *
+ * When the menu is open, a class of .menu-open is applied to the body. You can 
+ * use this for custom styling on any element when the menu is in the open position.                     
+ */
+
+
+/* Variables
+   ========================================================================== */
+
+{% set menuColorMobile = "#333333" %}   /* Set Mobile Menu Background Color */
+{% set aColorMobile = "#ffffff" %}      /* Set Link Color */
+{% set aColorHoverMobile = "#cc0000" %} /* Set Link Hover Color */
+
+
+/* Toggle Button
+   ========================================================================== */
+
+a.mobile-trigger {
+    display: none; /* Hide button on Desktop */
+    cursor: pointer; /* Mouse pointer type on hover */
+    position: absolute; /*******************************************/
+    top: 10px;          /* Position Button at top right of screen  */
+    right: 10px;        /*******************************************/
+    width: 40px; /* Button width */
+    height: 40px; /* Button height */      
+    background: #333; /* Background color */
+    border: 1px solid #222; /* Border color */
+    -webkit-border-radius: 3px; /*****************/
+    -moz-border-radius: 3px;    /* Border Radius */
+    border-radius: 3px;         /*****************/
+    -webkit-box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important; /***********************************/
+    -moz-box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important;    /* Inner box shadow and Outer glow */
+    box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important;         /***********************************/
+    z-index: 99999999999; /* Z-index to keep button on top of other layers */
+    -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
+}
+a.mobile-trigger:hover {
+    text-decoration: none; /* Removes link text underline on button */
+}
+/* Change button when menu is open */
+.mobile-open a.mobile-trigger{
+    -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
+    background: rgba(0, 0, 0, .20); /* Changes button background to be slightly darker than open menu color */
+    border-color: rgba(0, 0, 0, .3); /* Changes button border to be slightly darker than open menu color */
+}
+
+
+/* Toggle Button Icon & Animations
+   ========================================================================== */
+
+a.mobile-trigger span {
+    position: relative;
+    top: 17px; /* Centers icon inside button */
+    margin: 0 auto;
+    -webkit-transition-duration: 0s;
+    -webkit-transition-delay: .2s;
+}
+a.mobile-trigger  span:before, a.mobile-trigger span:after {
+    position: absolute;
+    content: '';
+}
+a.mobile-trigger  span, a.mobile-trigger  span:before, a.mobile-trigger  span:after {
+    width: 20px; /* Icon line width */
+    height: 4px; /* Icon line height */
+    background-color: #ffffff; /* Icon color */
+    -webkit-border-radius: 2px; /**********************************************/
+    -moz-border-radius: 2px;    /* Border Radius - must be half of the height */
+    border-radius: 2px;         /**********************************************/
+    display: block;
+}
+a.mobile-trigger  span:before {
+    margin-top: -8px; /* Position top line */
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-delay: .2s, 0;
+}
+a.mobile-trigger  span:after {
+    margin-top: 8px; /* Position bottom line */
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-delay: .2s, 0;
+}
+.mobile-open a.mobile-trigger span {
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition-delay: .2s;
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+}
+.mobile-open a.mobile-trigger span:before {
+    margin-top: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition-delay: 0, .2s;
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+}
+.mobile-open a.mobile-trigger span:after {
+    margin-top: 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition-delay: 0, .2s;
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
+    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
+    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
+}
+
+/* Child Toggle Button
+   ========================================================================== */
+
+a.child-trigger {
+    display: none !important; /* Hide button on Desktop */
+    cursor: pointer; /* Mouse pointer type on hover */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px !important; /* Button width */
+    min-width: 30px !important;
+    height: 30px !important; /* Button height */  
+    padding: 0 !important;
+    background: rgba(0, 0, 0, .20); /* Background color */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important;
+    -moz-box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important;
+    box-shadow: 0px 1px 7px rgba(255,255,255,0.25),inset 0px 1px rgba(255,255,255,0.25) !important;
+    border: 1px solid rgba(0, 0, 0, .3);
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.15);
+}
+a.child-trigger:hover {
+    text-decoration: none;
+}
+
+
+/* Child Toggle Button Icon & Animations
+   ========================================================================== */
+
+a.child-trigger span {
+    position: relative;
+    top: 13px; /* Centers icon inside button */
+    margin: 0 auto !important;
+    -webkit-transition-duration: .2s;
+}
+a.child-trigger span:after {
+    position: absolute;
+    content: '';
+}
+a.child-trigger span, a.child-trigger span:after {
+    width: 15px; /* Icon line width */
+    height: 4px; /* Icon line height */
+    background-color: #ffffff; /* Icon color */
+    -webkit-border-radius: 2px; /**********************************************/
+    -moz-border-radius: 2px;    /* Border Radius - must be half of the height */
+    border-radius: 2px;         /**********************************************/
+    display: block;
+}
+a.child-trigger span:after {
+    -webkit-transform: rotate(-90deg);
+     -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+     -webkit-transition-duration: .2s;
+}
+a.child-trigger.child-open span:after {
+    -webkit-transform: rotate(-180deg);
+     -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+     -webkit-transition-duration: .2s;
+}
+a.child-trigger.child-open span {
+    -webkit-transform: rotate(180deg);
+     -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+     -webkit-transition-duration: .2s;
+}
+
+  
+/* Menu Styles on Mobile Devices
+   ========================================================================== */  
+
+ @media (max-width: 767px) {
+ 
+    /* Hide menu on mobile */
+    .custom-menu-primary.js-enabled .hs-menu-flow-horizontal {
+        display: none;
+    }  
+ 
+    /* Show menu button on mobile */
+    a.mobile-trigger {
+        display: inline-block;
+    }
+
+    /* Show child menu button on mobile */
+    a.child-trigger {
+        display: block !important;
+    }
+
+    /* Add "Navigation" text to top left of mobile menu */
+    .custom-menu-primary .hs-menu-flow-horizontal:before{
+        content: 'Navigation';
+        position: relative;
+        top: -15px;
+        left: 10px;
+        margin: 0;
+        color: transparent;        
+        font-size: 22px;
+        text-transform: uppercase;
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, .25), 0px -1px 0px rgba(0, 0, 0, .1);
+        z-index: 99999999998;
+    }
+
+    /* Make child lists appear below parent items */
+    .custom-menu-primary ul.hs-menu-children-wrapper {
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        display: none;
+    }
+
+    /* Mobile Menu Styles */
+    .custom-menu-primary.js-enabled .hs-menu-flow-horizontal{
+        position: absolute; /**************************************************************/
+        top: 0;             /* Positions the menu to drop from the very top of the screen */
+        width: 100%;        /**************************************************************/
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal{
+        text-align: left; /* Left align all text */
+        padding: 30px 0 0 0; /* Padding to add room for "Navigation" text */
+        background-color: {{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
+        width: 100%; /* Full screen width */
+        -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.75); /******************************************/
+        -moz-box-shadow:    0px 2px 6px rgba(0, 0, 0, 0.75); /* Adds a little shadow to menu for depth */
+        box-shadow:         0px 2px 6px rgba(0, 0, 0, 0.75); /******************************************/
+        z-index: 8888;
+    }
+
+     /* Level 1 Menu List Styles */
+    .custom-menu-primary .hs-menu-flow-horizontal  ul{ padding: 0 !important; }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul{}
+    .custom-menu-primary .hs-menu-flow-horizontal > ul > li{
+        border-bottom: 1px solid rgba(0, 0, 0, .2); /* Adds transparent dark shadows to bottom of top level list items */
+        border-top: 1px solid rgba(255, 255, 255, .15); /* Adds transparent dark highlights to top of top level list items */
+        position: relative;
+     }
+
+    /* Adds shadow to the first top level list item for consistency */
+    .custom-menu-primary .hs-menu-flow-horizontal > ul > li:first-child:before{
+        content:'';
+        width: 100%;
+        height: 1px;
+        position: relative;
+        top: -2px;
+        display: block;
+        border-bottom: 1px solid rgba(0, 0, 0, .2);        
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul > li a{
+        font-size: 28px; /* Font size of top level list items */
+        line-height: 42px;
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul > li a:hover{}
+
+    /* Level 1 and Higher Menu List Styles */
+    .custom-menu-primary .hs-menu-flow-horizontal ul, .custom-menu-primary .hs-menu-flow-horizontal ul li{
+        background-color: transparent !important; /* Reset ul and li background-color to transparent */
+        width: 100% !important;
+        float: none!important;
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal ul li a{
+        color: {{ aColorMobile }}; /* link color set by global mobile-aColor variable */
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, .65); /* Text Shadow */
+        text-decoration: none;
+        padding: 10px;
+        max-width: none !important;
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal ul li a:hover{
+        color: {{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
+        text-decoration: none;
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal ul li.hs-item-has-children > a,
+    .custom-menu-primary .hs-menu-flow-horizontal ul li.hs-item-has-children ul.hs-menu-children-wrapper li.hs-item-has-children > a{
+        width: 80%; /* Makes room for child toggle button so the link isn't pressed accidentally by large fingers */
+    }
+
+    /* Level 2 and Higher Menu List Styles */
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul{
+        background-color: rgba(0,0,0,0.08); /* Adds a transparent dark background to child lists */
+        -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.15);
+        -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.15);
+        box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.15);
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul li{
+       text-indent: 10px; /* Indent Child lists */
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul li a{
+        font-size: 22px; /* Font size of child lists */
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul li a:hover{}
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul li:before:{}
+ 
+    /* Level 3 and Higher Menu List Styles */
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul{}
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul li{
+        text-indent: 30px; /* Indent Child lists */
+    }
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul li a{}
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul li a:hover{} 
+    .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul ul li{
+        text-indent: 50px; /* Indent Child lists */
+    }
+
+}
