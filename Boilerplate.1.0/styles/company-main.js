@@ -32,17 +32,3 @@ $(function() {
      */
 
 });
-
-
-
-
-
-/*
-[hubspot-metadata]
-{
-    "category": "page", 
-    "creatable": false, 
-    "path": "custom/page/company-theme/company-main.js"
-}
-[end-hubspot-metadata]
-*/
