@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function(){
 
  	/** 
  	 * Mobile Nav
@@ -29,3 +29,5 @@ $(function() {
 	$("body").find("script").remove().end().wrapInner("<div id='site-wrapper' />");
 
 });
+
+
