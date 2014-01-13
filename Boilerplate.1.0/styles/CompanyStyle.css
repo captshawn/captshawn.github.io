@@ -1009,6 +1009,13 @@ body input[type="button"]:focus {}
    Custom Styles
    ========================================================================== */
 
+/**
+ * The include below remains at the bottom of the stylesheet so that custom
+ * styles will override base styles.
+ *
+ * The styles from the include below are custom and miscellaneous styles 
+ * that do not pertain to any sections in CompanyStyle.css.
+ */
 
 {% include "custom/page/Company_Theme/CompanyCustom.css" %}
 
