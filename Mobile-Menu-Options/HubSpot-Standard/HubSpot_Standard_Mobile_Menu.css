@@ -193,7 +193,8 @@ a.child-trigger.child-open span {
  @media (max-width: 767px) {
  
     /* Hide menu on mobile */
-    .custom-menu-primary.js-enabled .hs-menu-flow-horizontal {
+    .custom-menu-primary.js-enabled .hs-menu-flow-horizontal,
+    .custom-menu-primary.js-enabled .hs-menu-children-wrapper{
         display: none;
     }  
  
