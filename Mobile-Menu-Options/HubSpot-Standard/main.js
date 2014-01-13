@@ -10,10 +10,10 @@ $(function() {
     $('.custom-menu-primary .hs-menu-flow-horizontal').before('<a class="mobile-trigger"><span></span></a>');
     $('.custom-menu-primary .hs-item-has-children > a').after('<a class="child-trigger"><span></span></a>');
     $('a.mobile-trigger').click(function() {
-        $('.hs-menu-children-wrapper').hide(250);
         $(this).next('.custom-menu-primary .hs-menu-flow-horizontal').slideToggle(250);
         $('body').toggleClass('mobile-open');
-        $('a.child-trigger').removeClass('child-open');        
+        $('a.child-trigger').removeClass('child-open');
+        $('.hs-menu-children-wrapper').hide(250);
         return false;
      });
 
