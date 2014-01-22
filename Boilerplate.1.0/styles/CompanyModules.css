@@ -89,6 +89,15 @@ select {
     box-sizing: border-box;
 }
 
+/* System Template Forms */
+#email-prefs-form .email-edit {
+    width: 100% !important;
+    max-width: 507px !important;
+}
+#hs-pwd-widget-password {
+    height: auto !important;
+}
+
 /* Menus */
 .hs-menu-wrapper ul {
     padding: 0;
