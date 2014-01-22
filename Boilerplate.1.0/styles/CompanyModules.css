@@ -13,6 +13,11 @@ video {
     height: auto;
 }
 
+/* Date Picker */
+#calroot {
+    width: 202px !important;
+}
+
 /* Embed Container (iFrame, Object, Embed) */
 .hs-responsive-embed {
     position: relative;
