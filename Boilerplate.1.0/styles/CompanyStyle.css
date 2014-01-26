@@ -429,9 +429,6 @@ a.mobile-trigger  span:after {
 .mobile-open a.mobile-trigger span {
     background-color: rgba(0,0,0,0.0);
     -webkit-transition-delay: .2s;
-    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
 }
 .mobile-open a.mobile-trigger span:before {
     margin-top: 0;
@@ -439,9 +436,6 @@ a.mobile-trigger  span:after {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     -webkit-transition-delay: 0, .2s;
-    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
 }
 .mobile-open a.mobile-trigger span:after {
     margin-top: 0;
@@ -449,9 +443,6 @@ a.mobile-trigger  span:after {
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     -webkit-transition-delay: 0, .2s;
-    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-    -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-    box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
 }
 
 /* Child Toggle Button
