@@ -253,8 +253,8 @@ q:before, q:after, blockquote:before, blockquote:after {}
 .body-container, 
 .footer-container {}
 
-/* Removes min-height on bootstrap structure */
-.row-fluid [class*="span"] { min-height: 1px !important; }
+/* Reduces min-height on bootstrap structure */
+.row-fluid [class*="span"] { min-height: 1px; }
 
 
 
