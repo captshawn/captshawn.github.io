@@ -190,6 +190,16 @@ strong {}
 em {}
 cite {}
 
+sup, sub {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {}
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {}
