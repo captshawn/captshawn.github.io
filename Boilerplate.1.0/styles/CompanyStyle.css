@@ -144,6 +144,7 @@ body {
   background: #fff;
   color: {{ baseColor }};
   font-family: {{ baseFontFamily }};
+  font-size: {{ baseFontSize }};
   line-height: {{ baseLineHeight }};
 }
 
