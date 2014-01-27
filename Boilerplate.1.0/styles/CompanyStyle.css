@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.0                                 
+   HS COS Boilerplate v1.1.0                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -282,7 +282,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
    Custom Menu Primary
    ========================================================================== */
 
-@media (min-width: 768px){
 
   {% set ulColor       = "" %} /* Set ul background color */
   {% set liColor       = "" %} /*  Set li background Color */
@@ -335,7 +334,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
     width: auto!important;
   }
 
-} /* End media query */
 
 
 
@@ -369,6 +367,39 @@ q:before, q:after, blockquote:before, blockquote:after {}
   {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
 
 
+  /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
+  /* Place any additional CSS you want removed from the mobile menu in this reset */
+  .custom-menu-primary, .custom-menu-primary *{
+    display: block;
+    float: none;
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    padding: 0px;
+    margin: 0px;
+    background-image: none;
+    background-color: transparent;
+    border: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none; 
+    max-width: none;
+    width: 100%;
+    height: auto;
+    line-height: 1;  
+    font-weight: normal;
+    text-decoration: none;
+    text-indent: 0px;
+    text-align: left;
+    color: {{aColorMobile}};
+    }
+
+
   /* Toggle Button
      ========================================================================== */
 
@@ -387,7 +418,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
       font-size: 16px;
       font-weight: normal;
       text-align: left;
-      color: {{ aColorMobile }};
       text-transform: uppercase;
       -webkit-border-bottom-right-radius: 6px;
       -webkit-border-bottom-left-radius: 6px;
@@ -402,7 +432,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
   a.mobile-trigger:hover {
       text-decoration: none; /* Removes link text underline on button */
-      color: {{ aColorMobile }};
+      color: {{ aColorHoverMobile }};
   }
 
   a.mobile-trigger span{
@@ -616,21 +646,14 @@ q:before, q:after, blockquote:before, blockquote:after {}
   }
 
   /* Level 1 and Higher Menu List Styles */
-  .custom-menu-primary .hs-menu-flow-horizontal ul{
-    margin: 0;
-    padding: 0;
-  }
   .custom-menu-primary .hs-menu-flow-horizontal ul li{
       border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
   }
   .custom-menu-primary .hs-menu-flow-horizontal ul li a{
-      color: {{ aColorMobile }}; /* link color set by global mobile-aColor variable */
       padding: 0 10px;
-      text-decoration: none;
   }
   .custom-menu-primary .hs-menu-flow-horizontal ul li a:hover{
       color: {{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
-      text-decoration: none;
   }
 
   /* Level 2 and Higher Menu List Styles */
