@@ -616,15 +616,21 @@ q:before, q:after, blockquote:before, blockquote:after {}
   }
 
   /* Level 1 and Higher Menu List Styles */
+  .custom-menu-primary .hs-menu-flow-horizontal ul{
+    margin: 0;
+    padding: 0;
+  }
   .custom-menu-primary .hs-menu-flow-horizontal ul li{
       border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
   }
   .custom-menu-primary .hs-menu-flow-horizontal ul li a{
       color: {{ aColorMobile }}; /* link color set by global mobile-aColor variable */
       padding: 0 10px;
+      text-decoration: none;
   }
   .custom-menu-primary .hs-menu-flow-horizontal ul li a:hover{
       color: {{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
+      text-decoration: none;
   }
 
   /* Level 2 and Higher Menu List Styles */
