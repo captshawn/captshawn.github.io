@@ -248,7 +248,6 @@ select {
         visibility: visible !important;
         opacity: 1 !important;
         position: static !important;
-        padding-left: 1em;
     }
     .hs-menu-wrapper.hs-menu-flow-horizontal ul ul ul {
         padding: 0;
