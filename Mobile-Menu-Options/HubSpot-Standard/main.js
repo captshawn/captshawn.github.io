@@ -8,7 +8,7 @@ $(function() {
 
     $('.custom-menu-primary').addClass('js-enabled');
     $('.custom-menu-primary .hs-menu-flow-horizontal').before('<a class="mobile-trigger"><span></span><i></i></a>');
-    $('.custom-menu-primary .hs-item-has-children > a').after('<a class="child-trigger"><span></span></a>');
+    $('.custom-menu-primary .flyouts .hs-item-has-children > a').after('<a class="child-trigger"><span></span></a>');
     $('a.mobile-trigger').click(function() {
         $(this).next('.custom-menu-primary .hs-menu-flow-horizontal').slideToggle(250);
         $('body').toggleClass('mobile-open');
