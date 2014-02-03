@@ -834,7 +834,9 @@ body select:focus:required:invalid:focus {}
 .hs_cos_wrapper_type_form input[type="url"], 
 .hs_cos_wrapper_type_form input[type="search"], 
 .hs_cos_wrapper_type_form input[type="tel"], 
-.hs_cos_wrapper_type_form input[type="color"] {}
+.hs_cos_wrapper_type_form input[type="color"] {
+  width: 100%;
+}
 
 .hs_cos_wrapper_type_form input[type="text"]:focus,
 .hs_cos_wrapper_type_form input[type="password"]:focus, 
@@ -852,7 +854,9 @@ body select:focus:required:invalid:focus {}
 .hs_cos_wrapper_type_form input[type="color"]:focus {}
 
 /* Multiple Line Inputs */
-.hs_cos_wrapper_type_form textarea {}
+.hs_cos_wrapper_type_form textarea {
+  width: 100%;
+}
 .hs_cos_wrapper_type_form textarea:focus {}
 
 /* Multiple Selection Inputs */
@@ -873,10 +877,14 @@ body select:focus:required:invalid:focus {}
 #comment-form label {}
 
 /* Inputs */
-#comment-form input[type="text"] {}
+#comment-form input[type="text"] {
+  width: 100%;
+}
 #comment-form input[type="text"]:focus {}
 
-#comment-form textarea {}
+#comment-form textarea {
+  width: 100%;
+}
 #comment-form textarea:focus {}
 
 #comment-form input[type="checkbox"] {}
@@ -893,7 +901,9 @@ body .hs-common-error-message {}
 #hs_form_target_blog_subscription label {}
 
 /* Inputs */
-#hs_form_target_blog_subscription input[type="email"] {}
+#hs_form_target_blog_subscription input[type="email"] {
+  width: 100%;
+}
 #hs_form_target_blog_subscription input[type="email"]:focus {}
 
 #hs_form_target_blog_subscription input[type="radio"] {}
