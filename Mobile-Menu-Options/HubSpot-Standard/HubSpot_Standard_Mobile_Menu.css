@@ -107,7 +107,7 @@
 
   a.mobile-trigger span:after{
       position: relative;
-      right: 4px;
+      right: 2px;
       content: 'Close'; /* Change the text on the open toggle button */
       background-color: {{ menuColorMobile }};
       opacity: 0;
