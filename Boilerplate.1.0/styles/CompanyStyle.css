@@ -921,6 +921,19 @@ body .hs-common-error-message {}
 .widget-type-google_search input[type="focus"] {}
 
 
+/* Multi Column Form
+   ========================================================================== */
+
+body .hs-form fieldset.form-columns-1 {}
+body .hs-form fieldset.form-columns-1 .hs-form-field {}
+
+body .hs-form fieldset.form-columns-2 {}
+body .hs-form fieldset.form-columns-2 .hs-form-field {}
+
+body .hs-form fieldset.form-columns-3 {}
+body .hs-form fieldset.form-columns-3 .hs-form-field {}
+
+
 
 
 
