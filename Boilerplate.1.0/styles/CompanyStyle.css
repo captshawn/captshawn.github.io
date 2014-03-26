@@ -62,7 +62,8 @@
 
 /* Colors */
 {% set baseColor      = "#333" %}    /* {# Dark Gray  |  Used on 'body' in 'Base'  |  Ex. "color: {{ baseColor }};" #} */
-{% set linkColor      = "gray" %}    /* {# Orange  |  Used on global anchors in 'Base'  |  Ex. "color: {{ linkColor }};" #} */
+{% set linkColor      = "gray" %}    /* {# Gray  |  Used on global anchors in 'Base'  |  Ex. "color: {{ linkColor }};" #} */
+{% set linkHover      = "#000" %}    /* {# Black  |  Used on global anchors in 'Base'  |  Ex. "color: {{ linkHover }};" #} */
 {% set accentColor1   = "#666" %}    /* {# Medium Gray  |  Ex. "color: {{ accentColor1 }};" #} */
 {% set accentColor2   = "#ccc" %}    /* {# Light Gray  |  Ex. "color: {{ accentColor2 }};" #} */
 {% set accentColor3   = "#ddd" %}    /* {# Lightest Gray  |  Ex. "color: {{ accentColor3 }};" #} */
@@ -161,7 +162,7 @@ body {
 }
 
 a { color: {{ linkColor }}; }
-a:hover, a:focus {}
+a:hover, a:focus { color: {{ linkHover }}; }
 
 /* Highlighted Text */
 ::-moz-selection {
