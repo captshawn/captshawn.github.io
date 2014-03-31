@@ -26,6 +26,7 @@ $(function() {
 	$(window).resize(setMenuHeight);
 	
 	// Wrap body contents with a div so the transforms will work
-	$("body").find("script").remove().end().wrapInner("<div id='site-wrapper' />");
+	$("body > div").wrapAll('<div id="site-wrapper"></div>');
+    
 
 });
