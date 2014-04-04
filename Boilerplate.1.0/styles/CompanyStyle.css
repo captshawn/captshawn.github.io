@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.1.12                                
+   HS COS Boilerplate v1.2.0                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -193,10 +193,10 @@ em {}
 cite {}
 
 sup, sub {
-	position: relative;
-	font-size: 75%;
-	line-height: 0;
-	vertical-align: baseline;
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
 }
 
 sup { top: -0.5em; }
@@ -284,52 +284,41 @@ q:before, q:after, blockquote:before, blockquote:after {}
    ========================================================================== */
 
 
-  {% set ulColor       = "" %} /* Set ul background color */
-  {% set liColor       = "" %} /*  Set li background Color */
-  {% set aColor        = "" %} /*  Set link Color */
-  {% set aColorHover   = "" %} /*  Set link Hover Color */
+ {% set ulColor       = "" %} /* Set ul background color */
+ {% set liColor       = "" %} /*  Set li background Color */
+ {% set aColor        = "" %} /*  Set link Color */
+ {% set aColorHover   = "" %} /*  Set link Hover Color */
 
 
   /* Parent List */
-  .custom-menu-primary ul{ 
-      background: {{ ulColor }};
+  .custom-menu-primary .hs-menu-wrapper > ul{ 
+      background:{{ ulColor }};
   }
-  .custom-menu-primary ul li{
-      background: {{ liColor }};
+  .custom-menu-primary .hs-menu-wrapper > ul > li{
+      background:{{ liColor }};
   }
-  .custom-menu-primary ul li a {}
-  .custom-menu-primary ul li a:hover {}
+  .custom-menu-primary .hs-menu-wrapper > ul > li > a{
+    color:{{ aColor }};
+  }
+  .custom-menu-primary .hs-menu-wrapper > ul > li > a:hover{
+    color:{{ aColorHover }};
+  }
 
   /* Child List */
-  .custom-menu-primary ul ul{}
-  .custom-menu-primary ul ul li{
-      background: {{ liColor }};
+  .custom-menu-primary .hs-menu-wrapper > ul ul{}
+  .custom-menu-primary .hs-menu-wrapper > ul ul li{
+      background:{{ liColor }};
   }
-  .custom-menu-primary ul ul li a{}
-  .custom-menu-primary ul ul li a:hover{}
-
-  /* Grandchild List */
-  .custom-menu-primary ul ul ul{}
-  .custom-menu-primary ul ul ul li{
-      background: {{ liColor }};
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a{
+    color:{{ aColor }};
   }
-  .custom-menu-primary ul ul ul li a{}
-  .custom-menu-primary ul ul ul li a:hover{}
-   
-  /* Anchors */
-  .custom-menu-primary a {
-      color: {{ aColor }};
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a:hover{
+    color:{{ aColorHover }};
   }
-  .custom-menu-primary a:hover {
-      color: {{ aColorHover }};
-  }
-
-  /* Drop down */
-  .custom-menu-primary ul {}
 
   /* Override max width on menu links */
-  .custom-menu-primary > ul li a, 
-  .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children ul.hs-menu-children-wrapper li a {
+  .custom-menu-primary .hs-menu-wrapper > ul li a, 
+  .hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a{
     overflow: visible !important;
     max-width: none !important;
     width: auto!important;
@@ -352,7 +341,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 @media (min-width: 768px){
 
-  a.mobile-trigger, a.child-trigger {
+  a.mobile-trigger, a.child-trigger{
       display: none !important; /* Hide button on Desktop */
   }
 
@@ -363,9 +352,9 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Variables
      ========================================================================== */
 
-  {% set menuColorMobile = "#000000" %}   /* Set Mobile Menu Background Color */
-  {% set aColorMobile = "#ffffff" %}      /* Set Link Color */
-  {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
+ {% set menuColorMobile = "#000000" %}   /* Set Mobile Menu Background Color */
+ {% set aColorMobile = "#ffffff" %}      /* Set Link Color */
+ {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
 
 
   /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
@@ -397,14 +386,14 @@ q:before, q:after, blockquote:before, blockquote:after {}
     text-decoration: none;
     text-indent: 0px;
     text-align: left;
-    color: {{aColorMobile}};
+    color:{{aColorMobile}};
     }
 
 
   /* Toggle Button
      ========================================================================== */
 
-  a.mobile-trigger {
+  a.mobile-trigger{
       display: inline-block !important; /* Hide button on Desktop */
       cursor: pointer; /* Mouse pointer type on hover */
       position: absolute; /*******************************************/
@@ -413,7 +402,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
       width: auto; /* Button width */
       height: auto; /* Button height */      
       padding: 12px 10px;
-      background: {{ menuColorMobile }}; /* Background color */
+      background:{{ menuColorMobile }}; /* Background color */
       z-index: 99999999999; /* Z-index to keep button on top of other layers */
       -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
       font-size: 16px;
@@ -431,9 +420,9 @@ q:before, q:after, blockquote:before, blockquote:after {}
       transition:color .2s ease-in;
   }
 
-  a.mobile-trigger:hover {
+  a.mobile-trigger:hover{
       text-decoration: none; /* Removes link text underline on button */
-      color: {{ aColorHoverMobile }};
+      color:{{ aColorHoverMobile }};
   }
 
   a.mobile-trigger span{
@@ -449,7 +438,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
       position: relative;
       right: 2px;
       content: 'Close'; /* Change the text on the open toggle button */
-      background-color: {{ menuColorMobile }};
+      background-color:{{ menuColorMobile }};
       opacity: 0;
       transition: opacity .4s ease-in-out;
       -moz-transition: opacity .4s ease-in-out;
@@ -472,7 +461,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Toggle Button Icon & Animations
      ========================================================================== */
 
-  a.mobile-trigger i {
+  a.mobile-trigger i{
       display: inline;
       position: relative;
       top: -5px;
@@ -484,36 +473,36 @@ q:before, q:after, blockquote:before, blockquote:after {}
       transition-duration: 0s;
       transition-delay: .2s;
   }
-  a.mobile-trigger  i:before, a.mobile-trigger i:after {
+  a.mobile-trigger i:before, a.mobile-trigger i:after{
       position: absolute;
       content: '';
   }
-  a.mobile-trigger  i, a.mobile-trigger  i:before, a.mobile-trigger  i:after {
+  a.mobile-trigger i, a.mobile-trigger i:before, a.mobile-trigger i:after{
       width: 15px; /* Icon line width */
       height: 2px; /* Icon line height */
-      background-color: {{ aColorMobile }}; /* Icon color */
+      background-color:{{ aColorMobile }}; /* Icon color */
       display: inline-block;
   }
-  a.mobile-trigger  i:before {
+  a.mobile-trigger i:before{
       margin-top: -6px; /* Position top line */
       -webkit-transition-property: margin, -webkit-transform;
       -webkit-transition-duration: .2s;
       -webkit-transition-delay: .2s, 0;
   }
-  a.mobile-trigger  i:after {
+  a.mobile-trigger i:after{
       margin-top: 6px; /* Position bottom line */
       -webkit-transition-property: margin, -webkit-transform;
       -webkit-transition-duration: .2s;
       -webkit-transition-delay: .2s, 0;
   }
-  .mobile-open a.mobile-trigger i {
+  .mobile-open a.mobile-trigger i{
       background-color: rgba(0,0,0,0.0);
       -webkit-transition-delay: .2s;
       -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
       -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
       box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
   }
-  .mobile-open a.mobile-trigger i:before {
+  .mobile-open a.mobile-trigger i:before{
       margin-top: 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -523,7 +512,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
       -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
       box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
   }
-  .mobile-open a.mobile-trigger i:after {
+  .mobile-open a.mobile-trigger i:after{
       margin-top: 0;
       -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
@@ -537,7 +526,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Child Toggle Button
      ========================================================================== */
 
-  a.child-trigger {
+  a.child-trigger{
       display: block !important; /* Hide button on Desktop */
       cursor: pointer; /* Mouse pointer type on hover */
       position: absolute;
@@ -549,7 +538,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
       padding: 0 !important;
       border-left: 1px dotted rgba(255, 255, 255, .20);
   }
-  a.child-trigger:hover {
+  a.child-trigger:hover{
       text-decoration: none;
   }
 
@@ -557,7 +546,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Child Toggle Button Icon & Animations
      ========================================================================== */
 
-  a.child-trigger span {
+  a.child-trigger span{
       position: relative;
       top: 50%; /* Centers icon inside button */
       margin: 0 auto !important;
@@ -565,17 +554,17 @@ q:before, q:after, blockquote:before, blockquote:after {}
       -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger span:after {
+  a.child-trigger span:after{
       position: absolute;
       content: '';
   }
-  a.child-trigger span, a.child-trigger span:after {
+  a.child-trigger span, a.child-trigger span:after{
       width: 10px; /* Icon line width */
       height: 1px; /* Icon line height */
-      background-color: {{ aColorMobile }}; /* Icon color */
+      background-color:{{ aColorMobile }}; /* Icon color */
       display: block;
   }
-  a.child-trigger span:after {
+  a.child-trigger span:after{
       -webkit-transform: rotate(-90deg);
        -ms-transform: rotate(-90deg);
       transform: rotate(-90deg);
@@ -583,7 +572,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
        -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger.child-open span:after {
+  a.child-trigger.child-open span:after{
       -webkit-transform: rotate(-180deg);
        -ms-transform: rotate(-180deg);
       transform: rotate(-180deg);
@@ -591,7 +580,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
        -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger.child-open span {
+  a.child-trigger.child-open span{
       -webkit-transform: rotate(180deg);
        -ms-transform: rotate(180deg);
       transform: rotate(180deg);
@@ -606,13 +595,13 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
   /* Hide menu on mobile */
-  .custom-menu-primary.js-enabled .hs-menu-flow-horizontal,
+  .custom-menu-primary.js-enabled .hs-menu-wrapper,
   .custom-menu-primary.js-enabled .hs-menu-children-wrapper{
       display: none;
   }  
 
   /* Make child lists appear below parent items */
-  .custom-menu-primary ul.hs-menu-children-wrapper {
+  .custom-menu-primary ul.hs-menu-children-wrapper{
       visibility: visible !important;
       opacity: 1 !important;
       position: static !important;
@@ -620,7 +609,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   }
 
   /* Mobile Menu Styles */
-  .custom-menu-primary.js-enabled .hs-menu-flow-horizontal{
+  .custom-menu-primary.js-enabled .hs-menu-wrapper{
       position: absolute; /**************************************************************/
       top: 0;             /* Positions the menu to drop from the very top of the screen */
       left: 0px;          /**************************************************************/                                              
@@ -629,48 +618,49 @@ q:before, q:after, blockquote:before, blockquote:after {}
       -moz-box-shadow:    0px 5px 5px 0px rgba(0, 0, 0, 0.65);
       box-shadow:         0px 5px 5px 0px rgba(0, 0, 0, 0.65); 
   }
-  .custom-menu-primary .hs-menu-flow-horizontal{
+  .custom-menu-primary .hs-menu-wrapper{
       padding: 40px 0 0 0; /* Padding to add room for close button */
-      background-color: {{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
+      background-color:{{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
       width: 100%; /* Full screen width */
       z-index: 8888;
   }
 
    /* Level 1 Menu List Styles */
-  .custom-menu-primary .hs-menu-flow-horizontal > ul > li{
+  .custom-menu-primary .hs-menu-wrapper > ul > li{
       position: relative;
    }
-  .custom-menu-primary .hs-menu-flow-horizontal > ul > li a{
+  .custom-menu-primary .hs-menu-wrapper > ul > li a{
       font-size: 22px; /* Font size of top level list items */
       line-height: 45px;
       overflow: visible;
   }
 
   /* Level 1 and Higher Menu List Styles */
-  .custom-menu-primary .hs-menu-flow-horizontal ul li{
+  .custom-menu-primary .hs-menu-wrapper > ul li{
       border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
   }
-  .custom-menu-primary .hs-menu-flow-horizontal ul li a{
+  .custom-menu-primary .hs-menu-wrapper > ul li a{
       padding: 0 10px;
+      color:{{ aColorMobile }}; /* link color set by global mobile-aColor variable */
   }
-  .custom-menu-primary .hs-menu-flow-horizontal ul li a:hover{
-      color: {{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
+  .custom-menu-primary .hs-menu-wrapper > ul li a:hover{
+      color:{{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
   }
 
   /* Level 2 and Higher Menu List Styles */
-  .custom-menu-primary .hs-menu-flow-horizontal > ul ul li{
+  .custom-menu-primary .hs-menu-wrapper > ul ul li{
      background-color: rgba(255, 255, 255, .08);
   }
-  .custom-menu-primary .hs-menu-flow-horizontal > ul ul li a{
+  .custom-menu-primary .hs-menu-wrapper > ul ul li a{
       text-indent: 10px; /* Indent Child lists */
       font-size: 16px; /* Font size of child lists */
   }
 
   /* Level 3 and Higher Menu List Styles */
-  .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul li a{
+  .custom-menu-primary .hs-menu-wrapper > ul ul ul li a{
       text-indent: 30px; /* Indent Child lists */
   }
-  .custom-menu-primary .hs-menu-flow-horizontal > ul ul ul ul li a{
+  .custom-menu-primary .hs-menu-wrapper > ul ul ul ul li a{
       text-indent: 50px; /* Indent Child lists */
   }
 }
@@ -701,18 +691,74 @@ body.hs-blog-post {}
 /* Blog Listing */
 body.hs-blog-listing {}
 
-/* Use this to style the main wrapper for the blog listing posts */
+
+/* Blog Content Column
+   ========================================================================== */
+
+.blog-content-column {}
+
+/* Use this to style the main wrapper for the blog listing pages */
 .blog-listing-wrapper {}
+
+/* Use this to style the main wrapper for the blog post pages */
+.blog-post-wrapper {}
+
+/* Blog Title */
+.hs-blog-header h1 a{}
+
+/* Blog Post Title */
+.post-header h2 a {}
+
+/* Blog Author and Avatar */
+#hubspot-author_data {}
+#hubspot-author_data a.author-link {}
+.hs-author-avatar {}
+.hs-author-avatar img {}
 
 /* Use this to set up different styling for your blog posts */
 .blog-listing-wrapper .post-listing .post-item {}
 .blog-listing-wrapper .post-listing .post-item .post-body {}
+.blog-post-wrapper .post-body {}
+
+/* Post Featured Image on Listings Page */
+.hs-featured-image-wrapper {}
+.hs-featured-image-wrapper .hs-featured-image-link {}
+.hs-featured-image-wrapper .hs-featured-image-link img.hs-featured-image{
+    border-width: 0;
+    max-height: 170px;
+    max-width: 210px;
+    height: auto;
+    width: auto;
+    display: inline-block !important;
+    float: right;
+    margin: 20px 0 20px 20px;
+}
+
+/* Read More Link */
+a.more-link {}
+
+/* Blog Topics List */
+#hubspot-topic_data {}
+#hubspot-topic_data a.topic-link {}
+
+/** 
+ * Blog Social Sharing icons
+ *
+ * Overrides defaults to better align icons and prevent overlapping 
+ */
+
+.hs-blog-social-share {
+  padding: 10px 0 0 0;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
 
 /** 
  * Blog Commments 
  *
  * Custom styles are listed below, as the COS does not provide default styles.
  */
+
 #comments-listing {
     border-bottom: 1px solid #ccc;
     margin-bottom: 30px;
@@ -733,17 +779,15 @@ body.hs-blog-listing {}
 .blog-pagination .all-posts-link {}
 .blog-pagination .next-posts-link {}
 
-/* Subscription frequency form */
-.hs_blog_default_blog_subscription {}
-.hs_blog_default_blog_subscription ul {}
 
-/** 
- * This is to override the default button styles.  
- *
- * Must include !important for each overriding propety.
- */
-.hs_blog_default_blog_subscription .hs-button {}
 
+/* Blog Sidebar
+   ========================================================================== */
+
+.blog-sidebar {}
+
+/* Blog Modules */
+.blog-sidebar .widget-span {}
 
 
 
@@ -1021,28 +1065,33 @@ body input[type="button"]:focus {}
    ========================================================================== */
 
 
-/* Large Desktop
+/* Large Desktop Screens
    ========================================================================== */
 
 @media (min-width: 1200px) {}
-     
 
-/* Portrait tablet to landscape and desktop
+/* Landscape tablet and larger screen sizes
    ========================================================================== */
 
-@media (min-width: 768px) and (max-width: {{ maxWidth }}) {}
+@media (min-width: 1024px) {}
+     
+
+/* Portrait tablet and larger screen sizes
+   ========================================================================== */
+
+@media (min-width: 768px) {}
 
 
-/* Landscape phone to portrait tablet
+/* Landscape tablet and smaller devices
    ========================================================================== */
 
 @media (max-width: 767px) {}
      
 
-/* Landscape phones and down
+/* Landscape phones and smaller devices
    ========================================================================== */
 
-@media (max-width: 480px) {}
+@media (max-width: 479px) {}
 
 
 /* iPhone
@@ -1067,4 +1116,3 @@ body input[type="button"]:focus {}
  */
 
 {% include "custom/page/Company_Theme/CompanyCustom.css" %}
-

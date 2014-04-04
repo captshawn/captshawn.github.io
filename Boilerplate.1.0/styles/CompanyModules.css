@@ -7,6 +7,36 @@ img {
     vertical-align: bottom; /* Suppress the space beneath the baseline */
 }
 
+img.alignRight{
+    margin: 0 0 5px 15px;
+}
+
+img.alignLeft{
+    margin: 0 15px 5px 0;
+}
+
+/* Blog Social Sharing */
+.hs-blog-social-share {
+  height: auto;
+  padding: 10px 0 0 0;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+.hs-blog-social-share .hs-blog-social-share-list {
+  margin: 0;
+}
+.hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item {
+  height: 30px;
+}
+@media (max-width: 479px){
+.hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item:nth-child(2) {
+    float: none !important; /* Stack social icons into two rows on phones */
+  }
+}
+.hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item .fb-like > span{
+  vertical-align: top !important; /* Aligns Facebook icon with other social media icons */
+}
+
 /* Videos */
 video {
     max-width: 100%;
