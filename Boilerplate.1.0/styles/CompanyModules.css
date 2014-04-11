@@ -16,12 +16,6 @@ img.alignLeft{
 }
 
 /* Blog Social Sharing */
-.hs-blog-social-share {
-  height: auto;
-  padding: 10px 0 0 0;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-}
 .hs-blog-social-share .hs-blog-social-share-list {
   margin: 0;
 }
