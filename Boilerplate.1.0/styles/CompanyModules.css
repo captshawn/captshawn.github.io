@@ -15,6 +15,9 @@ img.alignLeft{
     margin: 0 15px 5px 0;
 }
 
+/* Reduces min-height on bootstrap structure */
+.row-fluid [class*="span"] { min-height: 1px; }
+
 /* Blog Social Sharing */
 .hs-blog-social-share .hs-blog-social-share-list {
   margin: 0;
@@ -40,6 +43,28 @@ video {
 /* Date Picker */
 #calroot {
     width: 202px !important;
+    line-height: normal;
+}
+#calroot,
+#calroot *,
+#calroot *:before,
+#calroot *:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+ 
+#calroot select {
+    min-height: 0 !important;
+    padding: 1px 2px !important;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet MS", Verdana, sans-serif !important;
+    font-size: 10px !important;
+    line-height: 18px !important;
+    font-weight: normal !important;
+}
+ 
+#caldays {
+    margin-bottom: 4px;
 }
 
 /* Embed Container (iFrame, Object, Embed) */
@@ -127,13 +152,12 @@ select {
     padding: 0;
 }
 
-/* Horizontal Menu */
+/* Horizontal Menu
+   ========================================================================== */
+
 .hs-menu-wrapper.hs-menu-flow-horizontal ul {
     list-style: none;
     margin: 0;
-}
-.hs-menu-wrapper.hs-menu-flow-horizontal ul ul ul {
-    padding: 10px;
 }
 .hs-menu-wrapper.hs-menu-flow-horizontal > ul {
     display: inline-block;
@@ -156,7 +180,7 @@ select {
 .hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children {
     position: relative;
 }
-.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper {
+.hs-menu-wrapper.hs-menu-flow-horizontal.flyouts > ul li.hs-item-has-children ul.hs-menu-children-wrapper {
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 0.4s;
@@ -168,11 +192,11 @@ select {
     display: block;
     white-space: nowrap;
 }
-.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li.hs-item-has-children ul.hs-menu-children-wrapper {
+.hs-menu-wrapper.hs-menu-flow-horizontal.flyouts > ul li.hs-item-has-children ul.hs-menu-children-wrapper li.hs-item-has-children ul.hs-menu-children-wrapper {
     left: 100%;
     top: 0;
 }
-.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
+.hs-menu-wrapper.hs-menu-flow-horizontal.flyouts > ul li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
     opacity: 1;
     visibility: visible;
 }
@@ -212,7 +236,9 @@ select {
     display: inline-block;
 }
 
-/* Veritical Menu */
+/* Vertical Menu
+   ========================================================================== */ 
+
 .hs-menu-wrapper.hs-menu-flow-vertical {
     width: 100%;
 }
@@ -233,14 +259,28 @@ select {
     position: relative;
 }
 
-/* Show Nested Children */
-.hs-menu-wrapper.hs-menu-flow-vertical li.hs-item-has-children > ul > li { display: none; }
-.hs-menu-wrapper.hs-menu-flow-vertical li.active-branch > ul > li { display: block; }
-.hs-menu-wrapper.hs-menu-flow-vertical li ul { padding-left: 1em; }
-.hs-menu-wrapper.hs-menu-flow-vertical.hs-menu-show-active-branch > ul {
-    max-width: 100%;
-    overflow: hidden;
+/* Flyouts */
+.hs-menu-wrapper.hs-menu-flow-vertical.flyouts > ul li.hs-item-has-children ul.hs-menu-children-wrapper {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s;
+    position: absolute;
+    z-index: 10;
+    left: 0;
 }
+.hs-menu-wrapper.hs-menu-flow-vertical > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a {
+    display: block;
+    white-space: nowrap;
+}
+.hs-menu-wrapper.hs-menu-flow-vertical.flyouts > ul li.hs-item-has-children ul.hs-menu-children-wrapper {
+    left: 100%;
+    top: 0;
+}
+.hs-menu-wrapper.hs-menu-flow-vertical.flyouts > ul li.hs-item-has-children:hover > ul.hs-menu-children-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 @media (max-width: 767px) {
     .hs-menu-wrapper, .hs-menu-wrapper * {
@@ -278,6 +318,13 @@ select {
     }
     .hs-menu-wrapper.hs-menu-flow-horizontal>ul li.hs-item-has-children ul.hs-menu-children-wrapper li a {
         white-space: normal;
+    }
+
+    /* Stacking Vertical Nav for Mobile */
+    .hs-menu-wrapper.hs-menu-flow-vertical.flyouts > ul li.hs-item-has-children ul.hs-menu-children-wrapper  {
+        position: static;
+        opacity: 1;
+        visibility: visible;
     }
 }
 

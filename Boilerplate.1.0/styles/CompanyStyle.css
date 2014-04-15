@@ -8,15 +8,15 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.2.0                                
+   HS COS Boilerplate v1.2.1                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
 {% include "hubspot/styles/responsive/required_base.css" %}
-{% include "custom/page/Company_Theme/Company-modules.css" %}
+{% include "custom/page/Company_Theme/CompanyModules.css" %}
 
 /* These includes are optional, but helpful. */
-{% include "hubspot/styles/patches/recommended.css" %}
+{% include "hubspot/styles/patches/recommended.css" %} 
 
 
 
@@ -155,10 +155,10 @@ body {
  *
  * Apply this class to full-width modules.
  */
-.page-center {
-  float: none !important;
-  max-width: {{ maxWidth }} !important;
-  margin: 0 auto !important;
+.container-fluid .row-fluid .page-center {
+  float: none;
+  max-width: {{ maxWidth }};
+  margin: 0 auto;
 }
 
 a { color: {{ linkColor }}; }
@@ -191,6 +191,8 @@ small {}
 strong {}
 em {}
 cite {}
+code {}
+pre {}
 
 sup, sub {
   position: relative;
@@ -254,9 +256,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
 .header-container, 
 .body-container, 
 .footer-container {}
-
-/* Reduces min-height on bootstrap structure */
-.row-fluid [class*="span"] { min-height: 1px; }
 
 
 
@@ -339,13 +338,9 @@ q:before, q:after, blockquote:before, blockquote:after {}
  * use this for custom styling on any element when the menu is in the open position.                     
  */
 
-@media (min-width: 768px){
-
-  a.mobile-trigger, a.child-trigger{
-      display: none !important; /* Hide button on Desktop */
+  .mobile-trigger, .child-trigger{
+      display: none; /* Hide button on Desktop */
   }
-
-}
 
 @media (max-width: 767px){
 
@@ -359,7 +354,10 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
   /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
   /* Place any additional CSS you want removed from the mobile menu in this reset */
-  .custom-menu-primary, .custom-menu-primary *{
+  .custom-menu-primary,
+  .custom-menu-primary .hs-menu-wrapper > ul,
+  .custom-menu-primary .hs-menu-wrapper > ul li,
+  .custom-menu-primary .hs-menu-wrapper > ul li a{
     display: block;
     float: none;
     position: static;
@@ -393,7 +391,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Toggle Button
      ========================================================================== */
 
-  a.mobile-trigger{
+  .mobile-trigger{
       display: inline-block !important; /* Hide button on Desktop */
       cursor: pointer; /* Mouse pointer type on hover */
       position: absolute; /*******************************************/
@@ -420,25 +418,25 @@ q:before, q:after, blockquote:before, blockquote:after {}
       transition:color .2s ease-in;
   }
 
-  a.mobile-trigger:hover{
+  .mobile-trigger:hover{
       text-decoration: none; /* Removes link text underline on button */
       color:{{ aColorHoverMobile }};
   }
 
-  a.mobile-trigger span{
+  .mobile-trigger span{
       display: inline;
   }
 
-  a.mobile-trigger span:before{
+  .mobile-trigger span:before{
       position: absolute;
       content: 'Menu'; /* Change the text on the closed toggle button */
   }
 
-  a.mobile-trigger span:after{
+  .mobile-trigger span:after{
       position: relative;
       right: 2px;
       content: 'Close'; /* Change the text on the open toggle button */
-      background-color:{{ menuColorMobile }};
+      background-color: {{ menuColorMobile }};
       opacity: 0;
       transition: opacity .4s ease-in-out;
       -moz-transition: opacity .4s ease-in-out;
@@ -446,14 +444,14 @@ q:before, q:after, blockquote:before, blockquote:after {}
   }
 
   /* Change button when menu is open */
-  .mobile-open a.mobile-trigger{
+  .mobile-open .mobile-trigger{
       -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
       -moz-transition:background-color 0.2s linear; /* Button color transition effect */
       transition:background-color 0.2s linear; /* Button color transition effect */
       background: transparent; /* Changes button background to be slightly darker than open menu color */  
   }
 
-  .mobile-open a.mobile-trigger span:after{
+  .mobile-open .mobile-trigger span:after{
      opacity: 1; 
   }
 
@@ -461,7 +459,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Toggle Button Icon & Animations
      ========================================================================== */
 
-  a.mobile-trigger i{
+  .mobile-trigger i{
       display: inline;
       position: relative;
       top: -5px;
@@ -473,60 +471,51 @@ q:before, q:after, blockquote:before, blockquote:after {}
       transition-duration: 0s;
       transition-delay: .2s;
   }
-  a.mobile-trigger i:before, a.mobile-trigger i:after{
+  .mobile-trigger i:before, .mobile-trigger i:after{
       position: absolute;
       content: '';
   }
-  a.mobile-trigger i, a.mobile-trigger i:before, a.mobile-trigger i:after{
+  .mobile-trigger i, .mobile-trigger i:before, .mobile-trigger i:after{
       width: 15px; /* Icon line width */
       height: 2px; /* Icon line height */
-      background-color:{{ aColorMobile }}; /* Icon color */
+      background-color: {{ aColorMobile }}; /* Icon color */
       display: inline-block;
   }
-  a.mobile-trigger i:before{
+  .mobile-trigger i:before{
       margin-top: -6px; /* Position top line */
       -webkit-transition-property: margin, -webkit-transform;
       -webkit-transition-duration: .2s;
       -webkit-transition-delay: .2s, 0;
   }
-  a.mobile-trigger i:after{
+  .mobile-trigger i:after{
       margin-top: 6px; /* Position bottom line */
       -webkit-transition-property: margin, -webkit-transform;
       -webkit-transition-duration: .2s;
       -webkit-transition-delay: .2s, 0;
   }
-  .mobile-open a.mobile-trigger i{
+  .mobile-open .mobile-trigger i{
       background-color: rgba(0,0,0,0.0);
       -webkit-transition-delay: .2s;
-      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
   }
-  .mobile-open a.mobile-trigger i:before{
+  .mobile-open .mobile-trigger i:before{
       margin-top: 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
       -webkit-transition-delay: 0, .2s;
-      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
   }
-  .mobile-open a.mobile-trigger i:after{
+  .mobile-open .mobile-trigger i:after{
       margin-top: 0;
       -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
       -webkit-transition-delay: 0, .2s;
-      -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0);
-      -moz-box-shadow:    0px 1px 1px rgba(0, 0, 0, 0);
-      box-shadow:         0px 1px 1px rgba(0, 0, 0, 0);
   }
 
   /* Child Toggle Button
      ========================================================================== */
 
-  a.child-trigger{
+  .child-trigger{
       display: block !important; /* Hide button on Desktop */
       cursor: pointer; /* Mouse pointer type on hover */
       position: absolute;
@@ -538,7 +527,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
       padding: 0 !important;
       border-left: 1px dotted rgba(255, 255, 255, .20);
   }
-  a.child-trigger:hover{
+  .child-trigger:hover{
       text-decoration: none;
   }
 
@@ -546,7 +535,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   /* Child Toggle Button Icon & Animations
      ========================================================================== */
 
-  a.child-trigger span{
+  .child-trigger span{
       position: relative;
       top: 50%; /* Centers icon inside button */
       margin: 0 auto !important;
@@ -554,17 +543,17 @@ q:before, q:after, blockquote:before, blockquote:after {}
       -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger span:after{
+  .child-trigger span:after{
       position: absolute;
       content: '';
   }
-  a.child-trigger span, a.child-trigger span:after{
+  .child-trigger span, .child-trigger span:after{
       width: 10px; /* Icon line width */
       height: 1px; /* Icon line height */
       background-color:{{ aColorMobile }}; /* Icon color */
       display: block;
   }
-  a.child-trigger span:after{
+  .child-trigger span:after{
       -webkit-transform: rotate(-90deg);
        -ms-transform: rotate(-90deg);
       transform: rotate(-90deg);
@@ -572,7 +561,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
        -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger.child-open span:after{
+  .child-trigger.child-open span:after{
       -webkit-transform: rotate(-180deg);
        -ms-transform: rotate(-180deg);
       transform: rotate(-180deg);
@@ -580,7 +569,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
        -moz-transition-duration: .2s;
       transition-duration: .2s;
   }
-  a.child-trigger.child-open span{
+  .child-trigger.child-open span{
       -webkit-transform: rotate(180deg);
        -ms-transform: rotate(180deg);
       transform: rotate(180deg);
@@ -639,7 +628,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
   .custom-menu-primary .hs-menu-wrapper > ul li{
       border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
   }
-  .custom-menu-primary .hs-menu-wrapper > ul li a{
+  .custom-menu-primary .hs-menu-wrapper >  ul li a{
       padding: 0 10px;
       color:{{ aColorMobile }}; /* link color set by global mobile-aColor variable */
   }
@@ -800,6 +789,12 @@ a.more-link {}
 /* All Global Forms
    ========================================================================== */
 
+/* Form Field */
+body .hs-form-field {}
+
+/* Descriptions */
+body .hs-field-desc {}
+
 /* Labels */
 body label {}
 body .hs-form-field > label {}
@@ -818,7 +813,12 @@ body input[type="email"],
 body input[type="url"], 
 body input[type="search"], 
 body input[type="tel"], 
-body input[type="color"] {}
+body input[type="color"],
+body input[type="file"],
+body textarea,
+body select {
+  width: 100%;
+}
 
 body input[type="text"]:focus,
 body input[type="password"]:focus, 
@@ -833,20 +833,23 @@ body input[type="email"]:focus,
 body input[type="url"]:focus, 
 body input[type="search"]:focus, 
 body input[type="tel"]:focus, 
-body input[type="color"]:focus {}
+body input[type="color"]:focus,
+body input[type="file"]:focus,
+body textarea:focus,
+body select:focus {}
 
-/* Multiple Line Inputs */
+/* Separate Styles for Multiple Line Inputs */
 body textarea {}
 body textarea:focus {}
+
+/* Separate Styles for Drop Downs */
+body select {}
+body select:focus {}
 
 /* Multiple Selection Inputs */
 body form.hs-form .hs-form-field ul.inputs-list li input {}
 body input[type="radio"] {}
 body input[type="checkbox"] {}
-
-/* Drop Downs */
-body select {}
-body select:focus {}
 
 /* Required */
 body input:focus:required:invalid, 
@@ -857,9 +860,34 @@ body input:focus:required:invalid:focus,
 body textarea:focus:required:invalid:focus, 
 body select:focus:required:invalid:focus {}
 
+/* Placeholder Text */
+::-webkit-input-placeholder { /* Webkit Browsers */
+   /* color: #555;
+   opacity: 1; */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   /* color: #555;
+   opacity: 1; */
+}
+::-moz-placeholder { /* Firefox 19+ */
+   /* color: #555;
+   opacity: 1; */
+}
+:-ms-input-placeholder { /* IE10 */
+   /* color: #555;
+   opacity: 1; */
+}
+
 
 /* Form Module
    ========================================================================== */
+
+/* Form Field */
+.hs_cos_wrapper_type_form .hs-form-field {}
+
+/* Descriptions */
+.hs_cos_wrapper_type_form .hs-field-desc {}
 
 /* Labels */
 .hs_cos_wrapper_type_form label {}
@@ -879,9 +907,10 @@ body select:focus:required:invalid:focus {}
 .hs_cos_wrapper_type_form input[type="url"], 
 .hs_cos_wrapper_type_form input[type="search"], 
 .hs_cos_wrapper_type_form input[type="tel"], 
-.hs_cos_wrapper_type_form input[type="color"] {
-  width: 100%;
-}
+.hs_cos_wrapper_type_form input[type="color"],
+.hs_cos_wrapper_type_form input[type="file"],
+.hs_cos_wrapper_type_form textarea,
+.hs_cos_wrapper_type_form select {}
 
 .hs_cos_wrapper_type_form input[type="text"]:focus,
 .hs_cos_wrapper_type_form input[type="password"]:focus, 
@@ -896,22 +925,23 @@ body select:focus:required:invalid:focus {}
 .hs_cos_wrapper_type_form input[type="url"]:focus, 
 .hs_cos_wrapper_type_form input[type="search"]:focus, 
 .hs_cos_wrapper_type_form input[type="tel"]:focus, 
-.hs_cos_wrapper_type_form input[type="color"]:focus {}
+.hs_cos_wrapper_type_form input[type="color"]:focus,
+.hs_cos_wrapper_type_form input[type="file"]:focus,
+.hs_cos_wrapper_type_form textarea:focus,
+.hs_cos_wrapper_type_form select:focus {}
 
-/* Multiple Line Inputs */
-.hs_cos_wrapper_type_form textarea {
-  width: 100%;
-}
+/* Separate Styles for Multiple Line Inputs */
+.hs_cos_wrapper_type_form textarea {}
 .hs_cos_wrapper_type_form textarea:focus {}
+
+/* Separate Styles for Drop Downs */
+.hs_cos_wrapper_type_form select {}
+.hs_cos_wrapper_type_form select:focus {}
 
 /* Multiple Selection Inputs */
 .hs_cos_wrapper_type_form form.hs-form .hs-form-field ul.inputs-list li input {}
 .hs_cos_wrapper_type_form input[type="radio"] {}
 .hs_cos_wrapper_type_form input[type="checkbox"] {}
-
-/* Drop Downs */
-.hs_cos_wrapper_type_form select {}
-.hs_cos_wrapper_type_form select:focus {}
 
 
 /* Blog Comment Form
@@ -922,14 +952,10 @@ body select:focus:required:invalid:focus {}
 #comment-form label {}
 
 /* Inputs */
-#comment-form input[type="text"] {
-  width: 100%;
-}
+#comment-form input[type="text"] {}
 #comment-form input[type="text"]:focus {}
 
-#comment-form textarea {
-  width: 100%;
-}
+#comment-form textarea {}
 #comment-form textarea:focus {}
 
 #comment-form input[type="checkbox"] {}
@@ -946,9 +972,7 @@ body .hs-common-error-message {}
 #hs_form_target_blog_subscription label {}
 
 /* Inputs */
-#hs_form_target_blog_subscription input[type="email"] {
-  width: 100%;
-}
+#hs_form_target_blog_subscription input[type="email"] {}
 #hs_form_target_blog_subscription input[type="email"]:focus {}
 
 #hs_form_target_blog_subscription input[type="radio"] {}
@@ -977,6 +1001,28 @@ body .hs-form fieldset.form-columns-2 .hs-form-field {}
 body .hs-form fieldset.form-columns-3 {}
 body .hs-form fieldset.form-columns-3 .hs-form-field {}
 
+/* Multiple Selection Inputs */
+body form.hs-form .hs-form-field ul.inputs-list li input {}
+body input[type="radio"] {}
+body input[type="checkbox"] {}
+body form.hs-form fieldset { max-width: none; }
+body form.hs-form fieldset .hs-form-field { padding: 0 10px 0 0; }
+body form.hs-form fieldset[class*="form-columns"] .input { margin-right: 0; }
+body form.hs-form fieldset[class*="form-columns"] .hs-input { width: 100%; }
+body form.hs-form fieldset.form-columns-3 .hs-form-field { width: 33.33%; }
+
+@media (max-width: 400px) {
+
+  body form.hs-form fieldset .hs-form-field { 
+    padding: 0; 
+  }
+  body form.hs-form fieldset.form-columns-3 .hs-form-field,
+  body form.hs-form .form-columns-2 .hs-form-field .hs-input, 
+  body form.hs-form .form-columns-3 .hs-form-field .hs-input {
+    width: 100%;
+  }
+
+}
 
 
 
@@ -991,7 +1037,9 @@ body .hs-form fieldset.form-columns-3 .hs-form-field {}
 
 body .hs-button.primary,
 body input[type="submit"],
-body input[type="button"] {}
+body input[type="button"] {
+  cursor: pointer;
+}
 
 body .hs-button.primary:hover,
 body input[type="submit"]:hover,
@@ -1063,23 +1111,12 @@ body input[type="button"]:focus {}
 /* ==========================================================================
    Mobile                                                 
    ========================================================================== */
-
-
-/* Large Desktop Screens
-   ========================================================================== */
-
-@media (min-width: 1200px) {}
-
-/* Landscape tablet and larger screen sizes
-   ========================================================================== */
-
-@media (min-width: 1024px) {}
      
 
-/* Portrait tablet and larger screen sizes
+/* Screen sizes smaller than site maxWidth (.page-center)
    ========================================================================== */
 
-@media (min-width: 768px) {}
+@media (max-width: {{maxWidth}}) {}
 
 
 /* Landscape tablet and smaller devices
@@ -1092,12 +1129,6 @@ body input[type="button"]:focus {}
    ========================================================================== */
 
 @media (max-width: 479px) {}
-
-
-/* iPhone
-   ========================================================================== */
-
-@media (max-width: 320px) {}
 
 
 
