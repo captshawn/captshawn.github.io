@@ -740,6 +740,7 @@ a.more-link {}
   padding: 10px 0 0 0;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
+  height: auto;
 }
 
 /** 
