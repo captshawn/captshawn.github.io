@@ -26,16 +26,21 @@ $(function() {
 	$(window).resize(setMenuHeight);
 	
 	// Wrap body contents with a div so the transforms will work
-    function wrapBody() {
-        // Check to see if linked share script has loaded
-        if (window.IN && window.IN.ENV && window.IN.ENV.js &&
-            window.IN.ENV.js.xtn) {
-            $("body").find("script").remove().end().wrapInner('<div id="site-wrapper"></div>');
-        } else {
-            setTimeout(wrapBody, 50);
+    if($("body").hasClass(".hs-blog-post") || $("body").hasClass(".hs-blog-listing")){
+        function wrapBody() {
+            // Check to see if linked share script has loaded
+            if (window.IN && window.IN.ENV && window.IN.ENV.js &&
+                window.IN.ENV.js.xtn) {
+                $("body").find("script").remove().end().wrapInner('<div id="site-wrapper"></div>');
+            } else {
+                setTimeout(wrapBody, 50);
+            }
         }
+        wrapBody();
     }
-    wrapBody();
+    else {
+        $("body").find("script").remove().end().wrapInner('<div id="site-wrapper"></div>');
+    }
     
 
 });
