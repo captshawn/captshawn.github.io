@@ -1040,6 +1040,7 @@ body .hs-button.primary,
 body input[type="submit"],
 body input[type="button"] {
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 body .hs-button.primary:hover,
