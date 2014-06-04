@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.2.1                                
+   HS COS Boilerplate v1.3.0                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -20,25 +20,58 @@
 
 
 
-/* ==========================================================================
-   Index:                                                
 
+
+/* ==========================================================================
+
+   Index:         
+
+  1. BASE STYLES   
     - Variables
     - Macros
     - Base
     - Typography
+
+  2. COS STRUCTURE
     - Structure
     - Header
+    - Content
+    - Footer
+
+  3. MAIN NAVIGATION
     - Custom Menu Primary
     - Mobile Menu
-    - Content
+
+  4. TEMPLATE MODULE CLASSES
+    - Common Template Classes
+    - Site Pages
+    - Landing Pages
+    - System Pages
+
+  5. COS COMPONENTS
     - Blog
     - Forms
     - Buttons
-    - Footer
-    - Mobile
-    - Custom Styles
- 
+
+  6. MISCELLANOUS
+
+  7. MOBILE MEDIA QUERIES
+
+   ========================================================================== */
+
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   1. BASE STYLES                                             
+
+
    ========================================================================== */
 
 
@@ -80,7 +113,6 @@
 
 
 
-
 /* ==========================================================================
    Macros                                                  
    ========================================================================== */
@@ -111,7 +143,6 @@
  *    {#  {{ transition("all .2s linear") }}  #} 
  * }
  */
-
 
 
 
@@ -179,7 +210,6 @@ a:hover, a:focus { color: {{ linkHover }}; }
 
 
 
-
 /* ==========================================================================
    Typography
    ========================================================================== */
@@ -242,6 +272,21 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
 
+
+
+
+/* ==========================================================================
+
+
+   2. COS STRUCTURE                                            
+
+
+   ========================================================================== */
+
+
+
+
+
 /* ==========================================================================
    Structure                                               
    ========================================================================== */
@@ -260,7 +305,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
 
-
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -273,6 +317,63 @@ q:before, q:after, blockquote:before, blockquote:after {}
 .header-container .hs_cos_wrapper_type_logo {}
 .header-container .hs_cos_wrapper_type_logo a {}
 .header-container .hs_cos_wrapper_type_logo a img {}
+
+
+
+
+/* ==========================================================================
+   Content                                                 
+   ========================================================================== */
+
+
+.body-container-wrapper {}
+.body-container {}
+
+
+/* Unique Pages
+   ========================================================================== */
+
+/* Homepage */
+
+/* Contact Us */
+
+/* About Us */
+
+
+/* Modular & Reusable Components
+   ========================================================================== */
+
+/* Callouts */
+
+/* Social Media Custom Icons */
+
+/* Additional Menus aside from the Main Nav */
+
+
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+
+.footer-container-wrapper {}
+.footer-container {}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   3. MAIN NAVIGATION                                            
+
+
+   ========================================================================== */
 
 
 
@@ -657,22 +758,161 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
 
-/* ==========================================================================
-   Content                                                 
-   ========================================================================== */
-
-
-.body-container-wrapper {}
-.body-container {}
-
 
 
 
 
 /* ==========================================================================
-   Blog                                               
+
+
+   4. TEMPLATE MODULE SELECTORS                                         
+
+
    ========================================================================== */
 
+
+
+
+
+/* Common Template Selectors                                             
+   ========================================================================== */
+
+body.one-column {}
+body.two-column {}
+body.three-column {}
+body.content-wrapper {}
+body.main-content {}
+body.sidebar{}
+body.sidebar.right{}
+body.sidebar.left{}
+
+
+/* Common One Column Selectors */
+body.site-pages.one-column, 
+body.landing-page.one-column, 
+body.error-template.one-column, 
+body.password-template.one-column, 
+body.subscription-template.one-column {}
+
+body.site-pages.one-column .main-content, 
+body.landing-page.one-column .main-content, 
+body.error-template .main-content, 
+body.password-template .main-content, 
+body.subscription-template .main-content {}
+
+
+/* Common Two Column Selectors */
+body.site-page.two-column, 
+body.landing-page.two-column-right, 
+body.site-page.thank-you-template, 
+body.blog {}  
+
+body.site-page.two-column 
+body.main-content, 
+body.landing-page.two-column-right .main-content, 
+body.site-page.thank-you-template .main-content, 
+body.blog .blog-content {}
+
+
+/* Common Three Column Selectors */
+body.site-page.three-column, 
+body.landing-page.three-column {}
+
+body.site-page.three-column .main-content, 
+body.landing-page.three-column .main-content {}
+
+
+/* Site Pages                                            
+   ========================================================================== */
+
+/* One Column Template */
+body.site-page.one-column {}
+body.site-page.one-column .content-wrapper {}
+body.site-page.one-column .main-content {}
+
+
+/* Two Column Template */
+body.site-page.two-column {}
+body.site-page.two-column .content-wrapper {}
+body.site-page.two-column .main-content {}
+body.site-page.two-column .sidebar.right {}
+
+/* Three Column Template */
+body.site-page.three-column {}
+body.site-page.three-column .content-wrapper {}
+body.site-page.three-column .main-content {}
+
+
+/* Landing Pages                                           
+   ========================================================================== */
+
+/* One Column Template */
+body.landing-page.one-column {}
+body.landing-page.one-column .content-wrapper {}
+body.landing-page.one-column .main-content {}
+
+/* Thank You Flex Template */
+body.landing-page.thank-you-template {}
+body.landing-page.thank-you-template .content-wrapper {}
+body.landing-page.thank-you-template .main-content {}
+body.landing-page.thank-you-template .sidebar.right {}
+
+/* Two Column Template */
+body.landing-page.two-column-right {}
+body.landing-page.two-column-right .content-wrapper {}
+body.landing-page.two-column-right .main-content {}
+body.landing-page.two-column-right .sidebar.right {}
+
+/* Three Column Template */
+body.landing-page.three-column {}
+body.landing-page.three-column .content-wrapper {}
+body.landing-page.three-column .main-content {}
+
+
+/* System Pages                                          
+   ========================================================================== */
+
+/* Error Templates 404, 500 */
+body.error-template.one-column {}
+body.error-template.one-column .content-wrapper {}
+body.error-template .main-content {}
+
+/* Password template */
+body.password-template.one-column {}
+body.password-template.one-column .content-wrapper {}
+body.password-template .main-content {}
+
+/* Email Subscribition templates */
+body.subscription-template.one-column {}
+body.subscription-template.one-column .content-wrapper {}
+body.subscription-template .main-content {}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   5. COS COMPONENTS                                        
+
+
+   ========================================================================== */
+
+
+
+
+
+/* ==========================================================================
+   Blog                                         
+   ========================================================================== */
+
+
+/* Blog Post and Listing Body Class */
+body.blog {}
 
 /* Blog Post */
 body.hs-blog-post {}
@@ -680,11 +920,14 @@ body.hs-blog-post {}
 /* Blog Listing */
 body.hs-blog-listing {}
 
+/* Blog Columns Wrapper */
+.blog .content-wrapper {}
+
 
 /* Blog Content Column
    ========================================================================== */
 
-.blog-content-column {}
+.blog .blog-content {}
 
 /* Use this to style the main wrapper for the blog listing pages */
 .blog-listing-wrapper {}
@@ -774,10 +1017,10 @@ a.more-link {}
 /* Blog Sidebar
    ========================================================================== */
 
-.blog-sidebar {}
+.blog .blog-sidebar {}
 
 /* Blog Modules */
-.blog-sidebar .widget-span {}
+.blog .blog-sidebar {} .widget-span {}
 
 
 
@@ -819,6 +1062,8 @@ body input[type="file"],
 body textarea,
 body select {
   width: 100%;
+  font-family: {{ baseFontFamily }};
+  font-size: {{ baseFontSize }};
 }
 
 body input[type="text"]:focus,
@@ -1041,6 +1286,8 @@ body input[type="submit"],
 body input[type="button"] {
   cursor: pointer;
   -webkit-appearance: none;
+  font-family: {{ baseFontFamily }};
+  font-size: {{ baseFontSize }};
 }
 
 body .hs-button.primary:hover,
@@ -1098,22 +1345,52 @@ body input[type="button"]:focus {}
 
 
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-
-.footer-container-wrapper {}
-.footer-container {}
-
-
 
 
 
 /* ==========================================================================
-   Mobile                                                 
+
+
+   6. MISCELLANOUS                                        
+
+
    ========================================================================== */
-     
+
+
+
+
+
+/** 
+ * Styles that do not fit into available sections above can go here.
+ * For example, one would place 3rd party plugin overriding styles here.
+ *
+ * This section is NOT for 'Custom' styles.  All custom styles must go in the
+ * proper sections above.
+ *
+ * For instance, custom header and footer styles must go in the HEADER and 
+ * FOOTER sections.  Custom styles for anything in-between the header and footer 
+ * (such as, styles that are unique to the HOMEPAGE only), must go in the 
+ * CONTENT section.
+*/ 
+
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   7. MOBILE MEDIA QUERIES                              
+
+
+   ========================================================================== */
+
+
+
+   
 
 /* Screen sizes smaller than site maxWidth (.page-center)
    ========================================================================== */
@@ -1131,21 +1408,3 @@ body input[type="button"]:focus {}
    ========================================================================== */
 
 @media (max-width: 479px) {}
-
-
-
-
-
-/* ==========================================================================
-   Custom Styles
-   ========================================================================== */
-
-/**
- * The include below remains at the bottom of the stylesheet so that custom
- * styles will override base styles.
- *
- * The styles from the include below are custom and miscellaneous styles 
- * that do not pertain to any sections in CompanyStyle.css.
- */
-
-{% include "custom/page/Company_Theme/CompanyCustom.css" %}
