@@ -642,7 +642,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
     }
 
     /* Child Toggle Button
-    ========================================================================== */
+       ====================================================================== */
 
     .child-trigger {
         display: block !important; /* Hide button on Desktop */
@@ -663,7 +663,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
     /* Child Toggle Button Icon & Animations
-    ========================================================================== */
+       ====================================================================== */
 
     .child-trigger span {
         position: relative;
@@ -715,7 +715,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
     /* Menu Styles on Mobile Devices
-    ========================================================================== */  
+       ====================================================================== */  
 
 
     /* Hide menu on mobile */
@@ -1367,6 +1367,7 @@ body input[type="button"]:focus {}
 
 /* Blog Comment Button
    ========================================================================== */
+
 #add-comment-button.hs-button.primary {}
 #add-comment-button.hs-button.primary:hover {}
 #add-comment-button.hs-button.primary:focus {}
@@ -1374,6 +1375,7 @@ body input[type="button"]:focus {}
 
 /* Blog Subscription Button
    ========================================================================== */
+
 #hs_form_target_blog_subscription .hs-button.primary.large {}
 #hs_form_target_blog_subscription .hs-button.primary.large:hover {}
 #hs_form_target_blog_subscription .hs-button.primary.large:focus {}
@@ -1381,6 +1383,7 @@ body input[type="button"]:focus {}
 
 /* Google Search Button
    ========================================================================== */
+
 .widget-type-google_search .hs-button.primary {}
 .widget-type-google_search .hs-button.primary:hover {}
 .widget-type-google_search .hs-button.primary:focus {}
