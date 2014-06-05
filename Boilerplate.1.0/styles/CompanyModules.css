@@ -18,6 +18,9 @@ img.alignLeft{
 /* Reduces min-height on bootstrap structure */
 .row-fluid [class*="span"] { min-height: 1px; }
 
+/* Full Width Column does not need a min-height defined */
+.row-fluid .span12 { min-width: 0; }
+
 /* Blog Social Sharing */
 .hs-blog-social-share .hs-blog-social-share-list {
   margin: 0;
