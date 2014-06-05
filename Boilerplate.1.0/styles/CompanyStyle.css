@@ -119,12 +119,12 @@
 
 
 /** 
- * Create jinja macros for CSS3 properties that need browser prefixes.
- *
- * Apply the style as shown below.  Ignore the jinja comment tags. 
- *
- * {#  property: {{ variableName("values") }}  #}
-*/
+  * Create jinja macros for CSS3 properties that need browser prefixes.
+  *
+  * Apply the style as shown below.  Ignore the jinja comment tags. 
+  *
+  * {#  property: {{ variableName("values") }}  #}
+  */
 
 {% macro transition(value) -%} 
   -webkit-transition: {{ value }};
@@ -135,14 +135,14 @@
 {%- endmacro %} 
 
 /** 
- * Example of how to apply the above macro (ignore the jinja comment tags):
- *
- * a {
-*    color: red;
-*    font-size: 12px;
-*    {#  {{ transition("all .2s linear") }}  #} 
- * }
- */
+  * Example of how to apply the above macro (ignore the jinja comment tags):
+  *
+  * a {
+  *   color: red;
+  *   font-size: 12px;
+  *   {#  {{ transition("all .2s linear") }}  #} 
+  * }
+  */
 
 
 
