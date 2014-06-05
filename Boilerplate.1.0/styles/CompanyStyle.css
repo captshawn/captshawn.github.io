@@ -379,9 +379,9 @@ q:before, q:after, blockquote:before, blockquote:after {}
 
 
 {% set ulColor       = "" %} /* Set ul background color */
-{% set liColor       = "" %} /*  Set li background Color */
-{% set aColor        = "" %} /*  Set link Color */
-{% set aColorHover   = "" %} /*  Set link Hover Color */
+{% set liColor       = "" %} /* Set li background Color */
+{% set aColor        = "" %} /* Set link Color */
+{% set aColorHover   = "" %} /* Set link Hover Color */
 
 /* Parent List */
 .custom-menu-primary .hs-menu-wrapper > ul{ 
