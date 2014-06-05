@@ -122,26 +122,77 @@
  * Create jinja macros for CSS3 properties that need browser prefixes.
  *
  * Apply the style as shown below.  Ignore the jinja comment tags. 
- *
- * {#  property: {{ variableName("values") }}  #}
-*/
+ */
 
-{% macro transition(value) -%} 
+/* Box Sizing */
+{%- macro boxSizing(value) -%}
+    -webkit-box-sizing: {{ value }};
+    -moz-box-sizing: {{ value }};
+    box-sizing: {{ value }};
+{%- endmacro -%}
+
+/* Border Radius */
+{%- macro borderRadius(value) -%}
+    -webkit-border-radius: {{ value }};
+    -moz-border-radius: {{ value }};
+    border-radius: {{ value }};
+{%- endmacro -%}
+
+/* Box Shadow */
+{%- macro boxShadow(value) -%}
+    -webkit-box-shadow: {{ value }};
+    -moz-box-shadow: {{ value }};
+    box-shadow: {{ value }};
+{%- endmacro -%}
+
+/* Transform */
+{%- macro transform(value) -%}
+    -webkit-transform: {{ value }};
+    -moz-transform: {{ value }};
+    -ms-transform: {{ value }};
+    -o-transform: {{ value }};
+    transform: {{ value }};
+{%- endmacro -%}
+
+/* Transition */
+{%- macro transition(value) -%}
     -webkit-transition: {{ value }};
     -moz-transition: {{ value }};
     -o-transition: {{ value }};
-    -ms-transition: {{ value }};
     transition: {{ value }};
-{%- endmacro %} 
+{%- endmacro -%}
+
+/* Other prefixed properties */
+{%- macro prefix(value1, value2) -%}
+    -webkit-{{ value1 }}: {{ value2 }};
+    -moz-{{ value1 }}: {{ value2 }};
+    -ms-{{ value1 }}: {{ value2 }};
+    -o-{{ value1 }}: {{ value2 }};
+    {{ value1 }}: {{ value2 }};
+{%- endmacro -%}
+
+/* Clear elements */
+{%- macro clear(value) -%}
+    {{ value }}:before,
+    {{ value }}:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+{%- endmacro -%}
 
 /** 
- * Example of how to apply the above macro (ignore the jinja comment tags):
+ * Example of how to apply one of the above macro (ignore the jinja comment tags):
  *
  * a {
  *    color: red;
  *    font-size: 12px;
  *    {#  {{ transition("all .2s linear") }}  #} 
  * }
+ *
+ * And here is an example on how to clear an element in one line using the 'Clear' macro:
+ *
+ * {{ clear(".my-element") }}
  */
 
 
