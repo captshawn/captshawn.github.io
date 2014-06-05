@@ -780,11 +780,11 @@ q:before, q:after, blockquote:before, blockquote:after {}
 body.one-column {}
 body.two-column {}
 body.three-column {}
-body.content-wrapper {}
-body.main-content {}
-body.sidebar{}
-body.sidebar.right{}
-body.sidebar.left{}
+.content-wrapper {}
+.main-content {}
+.sidebar{}
+.sidebar.right{}
+.sidebar.left{}
 
 
 /* Common One Column Selectors */
