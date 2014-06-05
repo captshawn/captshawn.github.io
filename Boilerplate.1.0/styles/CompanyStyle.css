@@ -127,20 +127,20 @@
 */
 
 {% macro transition(value) -%} 
-    -webkit-transition: {{ value }};
-    -moz-transition: {{ value }};
-    -o-transition: {{ value }};
-    -ms-transition: {{ value }};
-    transition: {{ value }};
+  -webkit-transition: {{ value }};
+  -moz-transition: {{ value }};
+  -o-transition: {{ value }};
+  -ms-transition: {{ value }};
+  transition: {{ value }};
 {%- endmacro %} 
 
 /** 
  * Example of how to apply the above macro (ignore the jinja comment tags):
  *
  * a {
- *    color: red;
- *    font-size: 12px;
- *    {#  {{ transition("all .2s linear") }}  #} 
+*    color: red;
+*    font-size: 12px;
+*    {#  {{ transition("all .2s linear") }}  #} 
  * }
  */
 
@@ -158,21 +158,18 @@
  * Applies a natural box layout model to all elements so that width and padding 
  * are essentially combined, making responsive styles easier to manage.
  */
+
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
-/* Custom fonts */
-/* ex. @font-face {}; */
-/* all @import calls need to be done at the top on line 1 */
-
 html, body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 } 
 
-/* Website background color and default font styles can go here */
+/* Website background color and default font styles */
 body {
   background: #fff;
   color: {{ baseColor }};
@@ -184,8 +181,9 @@ body {
 /**
  * Page Center
  *
- * Apply this class to full-width modules.
+ * Apply .page-center to full-width modules.
  */
+
 .container-fluid .row-fluid .page-center {
   float: none;
   max-width: {{ maxWidth }};
@@ -197,14 +195,14 @@ a:hover, a:focus { color: {{ linkHover }}; }
 
 /* Highlighted Text */
 ::-moz-selection {
-    color: #fff;
-    background: {{ baseColor }};
-    text-shadow: none;
+  color: #fff;
+  background: {{ baseColor }};
+  text-shadow: none;
 }
 ::selection {
-    color: #fff;
-    background: {{ baseColor }};
-    text-shadow: none;
+  color: #fff;
+  background: {{ baseColor }};
+  text-shadow: none;
 }
 
 
@@ -248,17 +246,13 @@ h6 {}
 /* Lists */
 ul, ol {}
 ul ul, ul ol, ol ol, ol ul {}
-
 li {}
 
 ul.unstyled, ol.unstyled {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-ul.inline, ol.inline {}
-ul.inline > li, ol.inline > li {}
 
 /* Quotes */
 blockquote {}
@@ -384,45 +378,44 @@ q:before, q:after, blockquote:before, blockquote:after {}
    ========================================================================== */
 
 
- {% set ulColor       = "" %} /* Set ul background color */
- {% set liColor       = "" %} /*  Set li background Color */
- {% set aColor        = "" %} /*  Set link Color */
- {% set aColorHover   = "" %} /*  Set link Hover Color */
+{% set ulColor       = "" %} /* Set ul background color */
+{% set liColor       = "" %} /*  Set li background Color */
+{% set aColor        = "" %} /*  Set link Color */
+{% set aColorHover   = "" %} /*  Set link Hover Color */
 
+/* Parent List */
+.custom-menu-primary .hs-menu-wrapper > ul{ 
+  background:{{ ulColor }};
+}
+.custom-menu-primary .hs-menu-wrapper > ul > li{
+  background:{{ liColor }};
+}
+.custom-menu-primary .hs-menu-wrapper > ul > li > a{
+  color:{{ aColor }};
+}
+.custom-menu-primary .hs-menu-wrapper > ul > li > a:hover{
+  color:{{ aColorHover }};
+}
 
-  /* Parent List */
-  .custom-menu-primary .hs-menu-wrapper > ul{ 
-      background:{{ ulColor }};
-  }
-  .custom-menu-primary .hs-menu-wrapper > ul > li{
-      background:{{ liColor }};
-  }
-  .custom-menu-primary .hs-menu-wrapper > ul > li > a{
-    color:{{ aColor }};
-  }
-  .custom-menu-primary .hs-menu-wrapper > ul > li > a:hover{
-    color:{{ aColorHover }};
-  }
+/* Child List */
+.custom-menu-primary .hs-menu-wrapper > ul ul{}
+.custom-menu-primary .hs-menu-wrapper > ul ul li{
+  background:{{ liColor }};
+}
+.custom-menu-primary .hs-menu-wrapper > ul ul li a{
+  color:{{ aColor }};
+}
+.custom-menu-primary .hs-menu-wrapper > ul ul li a:hover{
+  color:{{ aColorHover }};
+}
 
-  /* Child List */
-  .custom-menu-primary .hs-menu-wrapper > ul ul{}
-  .custom-menu-primary .hs-menu-wrapper > ul ul li{
-      background:{{ liColor }};
-  }
-  .custom-menu-primary .hs-menu-wrapper > ul ul li a{
-    color:{{ aColor }};
-  }
-  .custom-menu-primary .hs-menu-wrapper > ul ul li a:hover{
-    color:{{ aColorHover }};
-  }
-
-  /* Override max width on menu links */
-  .custom-menu-primary .hs-menu-wrapper > ul li a, 
-  .hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a{
-    overflow: visible !important;
-    max-width: none !important;
-    width: auto!important;
-  }
+/* Override max width on menu links */
+.custom-menu-primary .hs-menu-wrapper > ul li a, 
+.hs-menu-wrapper.hs-menu-flow-horizontal > ul li.hs-item-has-children ul.hs-menu-children-wrapper li a {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+}
 
 
 
@@ -439,22 +432,27 @@ q:before, q:after, blockquote:before, blockquote:after {}
  * use this for custom styling on any element when the menu is in the open position.                     
  */
 
-  .mobile-trigger, .child-trigger{
-      display: none; /* Hide button on Desktop */
-  }
+.mobile-trigger, .child-trigger{
+    display: none; /* Hide button on Desktop */
+}
 
 @media (max-width: 767px){
+
 
   /* Variables
      ========================================================================== */
 
- {% set menuColorMobile = "#000000" %}   /* Set Mobile Menu Background Color */
- {% set aColorMobile = "#ffffff" %}      /* Set Link Color */
- {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
+  {% set menuColorMobile = "#000000" %}   /* Set Mobile Menu Background Color */
+  {% set aColorMobile = "#ffffff" %}      /* Set Link Color */
+  {% set aColorHoverMobile = "#ffffff" %} /* Set Link Hover Color */
 
+  /* 
+    * Menu Reset
+    *
+    * Remove styling from desktop version of custom-menu-primary. Place any 
+    * additional CSS you want removed from the mobile menu in this reset 
+    */
 
-  /* Menu Reset - Remove styling from desktop version of custom-menu-primary */
-  /* Place any additional CSS you want removed from the mobile menu in this reset */
   .custom-menu-primary,
   .custom-menu-primary .hs-menu-wrapper > ul,
   .custom-menu-primary .hs-menu-wrapper > ul li,
@@ -486,74 +484,69 @@ q:before, q:after, blockquote:before, blockquote:after {}
     text-indent: 0px;
     text-align: left;
     color:{{aColorMobile}};
-    }
+  }
 
 
   /* Toggle Button
      ========================================================================== */
 
   .mobile-trigger{
-      display: inline-block !important; /* Hide button on Desktop */
-      cursor: pointer; /* Mouse pointer type on hover */
-      position: absolute; /*******************************************/
-      top: 0px;          /* Position Button at top right of screen  */
-      right: 10px;        /*******************************************/
-      width: auto; /* Button width */
-      height: auto; /* Button height */      
-      padding: 12px 10px;
-      background:{{ menuColorMobile }}; /* Background color */
-      z-index: 99999999999; /* Z-index to keep button on top of other layers */
-      -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
-      font-size: 16px;
-      font-weight: normal;
-      text-align: left;
-      text-transform: uppercase;
-      -webkit-border-bottom-right-radius: 6px;
-      -webkit-border-bottom-left-radius: 6px;
-      -moz-border-radius-bottomright: 6px;
-      -moz-border-radius-bottomleft: 6px;
-      border-bottom-right-radius: 6px;
-      border-bottom-left-radius: 6px;
-      -webkit-transition:color .2s ease-in; 
-      -moz-transition:color .2s ease-in;
-      transition:color .2s ease-in;
+    display: inline-block !important; /* Hide button on Desktop */
+    cursor: pointer; /* Mouse pointer type on hover */
+    position: absolute; /*******************************************/
+    top: 0px;          /* Position Button at top right of screen  */
+    right: 10px;        /*******************************************/
+    width: auto; /* Button width */
+    height: auto; /* Button height */      
+    padding: 12px 10px;
+    background:{{ menuColorMobile }}; /* Background color */
+    z-index: 99999999999; /* Z-index to keep button on top of other layers */
+    -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-transition:color .2s ease-in; 
+    -moz-transition:color .2s ease-in;
+    transition:color .2s ease-in;
   }
-
   .mobile-trigger:hover{
-      text-decoration: none; /* Removes link text underline on button */
-      color:{{ aColorHoverMobile }};
+    text-decoration: none; /* Removes link text underline on button */
+    color:{{ aColorHoverMobile }};
   }
-
   .mobile-trigger span{
-      display: inline;
+    display: inline;
   }
-
   .mobile-trigger span:before{
-      position: absolute;
-      content: 'Menu'; /* Change the text on the closed toggle button */
+    position: absolute;
+    content: 'Menu'; /* Change the text on the closed toggle button */
   }
-
   .mobile-trigger span:after{
-      position: relative;
-      right: 2px;
-      content: 'Close'; /* Change the text on the open toggle button */
-      background-color: {{ menuColorMobile }};
-      opacity: 0;
-      transition: opacity .4s ease-in-out;
-      -moz-transition: opacity .4s ease-in-out;
-      -webkit-transition: opacity .4s ease-in-out; 
+    position: relative;
+    right: 2px;
+    content: 'Close'; /* Change the text on the open toggle button */
+    background-color: {{ menuColorMobile }};
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+    -moz-transition: opacity .4s ease-in-out;
+    -webkit-transition: opacity .4s ease-in-out; 
   }
 
   /* Change button when menu is open */
   .mobile-open .mobile-trigger{
-      -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
-      -moz-transition:background-color 0.2s linear; /* Button color transition effect */
-      transition:background-color 0.2s linear; /* Button color transition effect */
-      background: transparent; /* Changes button background to be slightly darker than open menu color */  
+    -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
+    -moz-transition:background-color 0.2s linear; /* Button color transition effect */
+    transition:background-color 0.2s linear; /* Button color transition effect */
+    background: transparent; /* Changes button background to be slightly darker than open menu color */  
   }
-
   .mobile-open .mobile-trigger span:after{
-     opacity: 1; 
+    opacity: 1; 
   }
 
 
@@ -561,75 +554,76 @@ q:before, q:after, blockquote:before, blockquote:after {}
      ========================================================================== */
 
   .mobile-trigger i{
-      display: inline;
-      position: relative;
-      top: -5px;
-      margin-left: 5px;
-      -webkit-transition-duration: 0s;
-      -webkit-transition-delay: .2s;
-      -moz-transition-duration: 0s;
-      -moz-transition-delay: .2s;
-      transition-duration: 0s;
-      transition-delay: .2s;
+    display: inline;
+    position: relative;
+    top: -5px;
+    margin-left: 5px;
+    -webkit-transition-duration: 0s;
+    -webkit-transition-delay: .2s;
+    -moz-transition-duration: 0s;
+    -moz-transition-delay: .2s;
+    transition-duration: 0s;
+    transition-delay: .2s;
   }
   .mobile-trigger i:before, .mobile-trigger i:after{
-      position: absolute;
-      content: '';
+    position: absolute;
+    content: '';
   }
   .mobile-trigger i, .mobile-trigger i:before, .mobile-trigger i:after{
-      width: 15px; /* Icon line width */
-      height: 2px; /* Icon line height */
-      background-color: {{ aColorMobile }}; /* Icon color */
-      display: inline-block;
+    width: 15px; /* Icon line width */
+    height: 2px; /* Icon line height */
+    background-color: {{ aColorMobile }}; /* Icon color */
+    display: inline-block;
   }
   .mobile-trigger i:before{
-      margin-top: -6px; /* Position top line */
-      -webkit-transition-property: margin, -webkit-transform;
-      -webkit-transition-duration: .2s;
-      -webkit-transition-delay: .2s, 0;
+    margin-top: -6px; /* Position top line */
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-delay: .2s, 0;
   }
   .mobile-trigger i:after{
-      margin-top: 6px; /* Position bottom line */
-      -webkit-transition-property: margin, -webkit-transform;
-      -webkit-transition-duration: .2s;
-      -webkit-transition-delay: .2s, 0;
+    margin-top: 6px; /* Position bottom line */
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: .2s;
+    -webkit-transition-delay: .2s, 0;
   }
   .mobile-open .mobile-trigger i{
-      background-color: rgba(0,0,0,0.0);
-      -webkit-transition-delay: .2s;
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition-delay: .2s;
   }
   .mobile-open .mobile-trigger i:before{
-      margin-top: 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      -webkit-transition-delay: 0, .2s;
+    margin-top: 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition-delay: 0, .2s;
   }
   .mobile-open .mobile-trigger i:after{
-      margin-top: 0;
-      -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-transition-delay: 0, .2s;
+    margin-top: 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition-delay: 0, .2s;
   }
+
 
   /* Child Toggle Button
      ========================================================================== */
 
   .child-trigger{
-      display: block !important; /* Hide button on Desktop */
-      cursor: pointer; /* Mouse pointer type on hover */
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 55px !important; /* Button width */
-      min-width: 55px !important;
-      height: 45px !important; /* Button height */  
-      padding: 0 !important;
-      border-left: 1px dotted rgba(255, 255, 255, .20);
+    display: block !important; /* Hide button on Desktop */
+    cursor: pointer; /* Mouse pointer type on hover */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 55px !important; /* Button width */
+    min-width: 55px !important;
+    height: 45px !important; /* Button height */  
+    padding: 0 !important;
+    border-left: 1px dotted rgba(255, 255, 255, .20);
   }
   .child-trigger:hover{
-      text-decoration: none;
+    text-decoration: none;
   }
 
 
@@ -637,122 +631,122 @@ q:before, q:after, blockquote:before, blockquote:after {}
      ========================================================================== */
 
   .child-trigger span{
-      position: relative;
-      top: 50%; /* Centers icon inside button */
-      margin: 0 auto !important;
-      -webkit-transition-duration: .2s;
-      -moz-transition-duration: .2s;
-      transition-duration: .2s;
+    position: relative;
+    top: 50%; /* Centers icon inside button */
+    margin: 0 auto !important;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
   }
   .child-trigger span:after{
-      position: absolute;
-      content: '';
+    position: absolute;
+    content: '';
   }
   .child-trigger span, .child-trigger span:after{
-      width: 10px; /* Icon line width */
-      height: 1px; /* Icon line height */
-      background-color:{{ aColorMobile }}; /* Icon color */
-      display: block;
+    width: 10px; /* Icon line width */
+    height: 1px; /* Icon line height */
+    background-color:{{ aColorMobile }}; /* Icon color */
+    display: block;
   }
   .child-trigger span:after{
-      -webkit-transform: rotate(-90deg);
-       -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-       -webkit-transition-duration: .2s;
-       -moz-transition-duration: .2s;
-      transition-duration: .2s;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
   }
   .child-trigger.child-open span:after{
-      -webkit-transform: rotate(-180deg);
-       -ms-transform: rotate(-180deg);
-      transform: rotate(-180deg);
-       -webkit-transition-duration: .2s;
-       -moz-transition-duration: .2s;
-      transition-duration: .2s;
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
   }
   .child-trigger.child-open span{
-      -webkit-transform: rotate(180deg);
-       -ms-transform: rotate(180deg);
-      transform: rotate(180deg);
-       -webkit-transition-duration: .2s;
-       -moz-transition-duration: .2s;
-      transition-duration: .2s;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    transition-duration: .2s;
   }
 
     
   /* Menu Styles on Mobile Devices
      ========================================================================== */  
 
-
   /* Hide menu on mobile */
   .custom-menu-primary.js-enabled .hs-menu-wrapper,
   .custom-menu-primary.js-enabled .hs-menu-children-wrapper{
-      display: none;
+    display: none;
   }  
 
   /* Make child lists appear below parent items */
   .custom-menu-primary ul.hs-menu-children-wrapper{
-      visibility: visible !important;
-      opacity: 1 !important;
-      position: static !important;
-      display: none;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    display: none;
   }
 
   /* Mobile Menu Styles */
   .custom-menu-primary.js-enabled .hs-menu-wrapper{
-      position: absolute; /**************************************************************/
-      top: 0;             /* Positions the menu to drop from the very top of the screen */
-      left: 0px;          /**************************************************************/                                              
-      width: 100%;   
-      -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.65);
-      -moz-box-shadow:    0px 5px 5px 0px rgba(0, 0, 0, 0.65);
-      box-shadow:         0px 5px 5px 0px rgba(0, 0, 0, 0.65); 
+    position: absolute; /**************************************************************/
+    top: 0;             /* Positions the menu to drop from the very top of the screen */
+    left: 0px;          /**************************************************************/                                              
+    width: 100%;   
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow:    0px 5px 5px 0px rgba(0, 0, 0, 0.65);
+    box-shadow:         0px 5px 5px 0px rgba(0, 0, 0, 0.65); 
   }
   .custom-menu-primary .hs-menu-wrapper{
-      padding: 40px 0 0 0; /* Padding to add room for close button */
-      background-color:{{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
-      width: 100%; /* Full screen width */
-      z-index: 8888;
+    padding: 40px 0 0 0; /* Padding to add room for close button */
+    background-color:{{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
+    width: 100%; /* Full screen width */
+    z-index: 8888;
   }
 
    /* Level 1 Menu List Styles */
   .custom-menu-primary .hs-menu-wrapper > ul > li{
-      position: relative;
-   }
+    position: relative;
+  }
   .custom-menu-primary .hs-menu-wrapper > ul > li a{
-      font-size: 22px; /* Font size of top level list items */
-      line-height: 45px;
-      overflow: visible;
+    font-size: 22px; /* Font size of top level list items */
+    line-height: 45px;
+    overflow: visible;
   }
 
   /* Level 1 and Higher Menu List Styles */
   .custom-menu-primary .hs-menu-wrapper > ul li{
-      border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
+    border-top: 1px dotted rgba(255, 255, 255, .35); /* Adds transparent dark highlights to top of top level list items */
   }
   .custom-menu-primary .hs-menu-wrapper >  ul li a{
-      padding: 0 10px;
-      color:{{ aColorMobile }}; /* link color set by global mobile-aColor variable */
+    padding: 0 10px;
+    color:{{ aColorMobile }}; /* link color set by global mobile-aColor variable */
   }
   .custom-menu-primary .hs-menu-wrapper > ul li a:hover{
-      color:{{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
+    color:{{ aColorHoverMobile }}; /* link hover color set by global mobile-aColorHover variable */
   }
 
   /* Level 2 and Higher Menu List Styles */
   .custom-menu-primary .hs-menu-wrapper > ul ul li{
-     background-color: rgba(255, 255, 255, .08);
+    background-color: rgba(255, 255, 255, .08);
   }
   .custom-menu-primary .hs-menu-wrapper > ul ul li a{
-      text-indent: 10px; /* Indent Child lists */
-      font-size: 16px; /* Font size of child lists */
+    text-indent: 10px; /* Indent Child lists */
+    font-size: 16px; /* Font size of child lists */
   }
 
   /* Level 3 and Higher Menu List Styles */
   .custom-menu-primary .hs-menu-wrapper > ul ul ul li a{
-      text-indent: 30px; /* Indent Child lists */
+    text-indent: 30px; /* Indent Child lists */
   }
   .custom-menu-primary .hs-menu-wrapper > ul ul ul ul li a{
-      text-indent: 50px; /* Indent Child lists */
+    text-indent: 50px; /* Indent Child lists */
   }
+
 }
 
 
@@ -780,12 +774,11 @@ q:before, q:after, blockquote:before, blockquote:after {}
 body.one-column {}
 body.two-column {}
 body.three-column {}
-body.content-wrapper {}
-body.main-content {}
-body.sidebar{}
-body.sidebar.right{}
-body.sidebar.left{}
-
+.content-wrapper {}
+.main-content {}
+.sidebar{}
+.sidebar.right{}
+.sidebar.left{}
 
 /* Common One Column Selectors */
 body.site-pages.one-column, 
@@ -800,7 +793,6 @@ body.error-template .main-content,
 body.password-template .main-content, 
 body.subscription-template .main-content {}
 
-
 /* Common Two Column Selectors */
 body.site-page.two-column, 
 body.landing-page.two-column-right, 
@@ -812,7 +804,6 @@ body.main-content,
 body.landing-page.two-column-right .main-content, 
 body.site-page.thank-you-template .main-content, 
 body.blog .blog-content {}
-
 
 /* Common Three Column Selectors */
 body.site-page.three-column, 
@@ -829,7 +820,6 @@ body.landing-page.three-column .main-content {}
 body.site-page.one-column {}
 body.site-page.one-column .content-wrapper {}
 body.site-page.one-column .main-content {}
-
 
 /* Two Column Template */
 body.site-page.two-column {}
@@ -956,14 +946,14 @@ body.hs-blog-listing {}
 .hs-featured-image-wrapper {}
 .hs-featured-image-wrapper .hs-featured-image-link {}
 .hs-featured-image-wrapper .hs-featured-image-link img.hs-featured-image{
-    border-width: 0;
-    max-height: 170px;
-    max-width: 210px;
-    height: auto;
-    width: auto;
-    display: inline-block !important;
-    float: right;
-    margin: 20px 0 20px 20px;
+  border-width: 0;
+  max-height: 170px;
+  max-width: 210px;
+  height: auto;
+  width: auto;
+  display: inline-block !important;
+  float: right;
+  margin: 20px 0 20px 20px;
 }
 
 /* Read More Link */
@@ -993,14 +983,14 @@ a.more-link {}
  */
 
 #comments-listing {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 30px;
-    margin-top: 30px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .comment {
-    margin: 10px 0;
-    border-top: 1px solid #ccc;
-    padding: 15px 0;
+  margin: 10px 0;
+  border-top: 1px solid #ccc;
+  padding: 15px 0;
 }
 .comment-date { font-size: 13px; text-align: right; }
 .comment-from { font-weight: bold; }
@@ -1093,6 +1083,10 @@ body select {}
 body select:focus {}
 
 /* Multiple Selection Inputs */
+body form.hs-form .hs-form-field ul.inputs-list {
+  list-style: none;
+  padding: 0;
+}
 body form.hs-form .hs-form-field ul.inputs-list li input {}
 body input[type="radio"] {}
 body input[type="checkbox"] {}
@@ -1111,7 +1105,6 @@ body select:focus:required:invalid:focus {}
    /* color: #555;
    opacity: 1; */
 }
-
 :-moz-placeholder { /* Firefox 18- */
    /* color: #555;
    opacity: 1; */
@@ -1258,16 +1251,10 @@ body form.hs-form fieldset[class*="form-columns"] .hs-input { width: 100%; }
 body form.hs-form fieldset.form-columns-3 .hs-form-field { width: 33.33%; }
 
 @media (max-width: 400px) {
-
-  body form.hs-form fieldset .hs-form-field { 
-    padding: 0; 
-  }
+  body form.hs-form fieldset .hs-form-field { padding: 0; }
   body form.hs-form fieldset.form-columns-3 .hs-form-field,
   body form.hs-form .form-columns-2 .hs-form-field .hs-input, 
-  body form.hs-form .form-columns-3 .hs-form-field .hs-input {
-    width: 100%;
-  }
-
+  body form.hs-form .form-columns-3 .hs-form-field .hs-input { width: 100%; }
 }
 
 
@@ -1288,6 +1275,7 @@ body input[type="button"] {
   -webkit-appearance: none;
   font-family: {{ baseFontFamily }};
   font-size: {{ baseFontSize }};
+  text-decoration: none !important;
 }
 
 body .hs-button.primary:hover,
