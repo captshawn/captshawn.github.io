@@ -796,13 +796,11 @@ body.subscription-template .main-content {}
 /* Common Two Column Selectors */
 body.site-page.two-column, 
 body.landing-page.two-column-right, 
-body.site-page.thank-you-template, 
 body.blog {}  
 
 body.site-page.two-column 
 body.main-content, 
-body.landing-page.two-column-right .main-content, 
-body.site-page.thank-you-template .main-content, 
+body.landing-page.two-column .main-content, 
 body.blog .blog-content {}
 
 /* Common Three Column Selectors */
@@ -841,17 +839,11 @@ body.landing-page.one-column {}
 body.landing-page.one-column .content-wrapper {}
 body.landing-page.one-column .main-content {}
 
-/* Thank You Flex Template */
-body.landing-page.thank-you-template {}
-body.landing-page.thank-you-template .content-wrapper {}
-body.landing-page.thank-you-template .main-content {}
-body.landing-page.thank-you-template .sidebar.right {}
-
 /* Two Column Template */
-body.landing-page.two-column-right {}
-body.landing-page.two-column-right .content-wrapper {}
-body.landing-page.two-column-right .main-content {}
-body.landing-page.two-column-right .sidebar.right {}
+body.landing-page.two-column {}
+body.landing-page.two-column .content-wrapper {}
+body.landing-page.two-column .main-content {}
+body.landing-page.two-column .sidebar.right {}
 
 /* Three Column Template */
 body.landing-page.three-column {}
@@ -865,17 +857,17 @@ body.landing-page.three-column .main-content {}
 /* Error Templates 404, 500 */
 body.error-template.one-column {}
 body.error-template.one-column .content-wrapper {}
-body.error-template .main-content {}
+body.error-template.one-column .main-content {}
 
 /* Password template */
 body.password-template.one-column {}
 body.password-template.one-column .content-wrapper {}
-body.password-template .main-content {}
+body.password-template.one-column .main-content {}
 
 /* Email Subscribition templates */
 body.subscription-template.one-column {}
 body.subscription-template.one-column .content-wrapper {}
-body.subscription-template .main-content {}
+body.subscription-template.one-column .main-content {}
 
 
 
