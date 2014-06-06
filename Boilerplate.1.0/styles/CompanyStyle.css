@@ -795,7 +795,7 @@ body.subscription-template .main-content {}
 
 /* Common Two Column Selectors */
 body.site-page.two-column, 
-body.landing-page.two-column-right, 
+body.landing-page.two-column, 
 body.blog {}  
 
 body.site-page.two-column 
