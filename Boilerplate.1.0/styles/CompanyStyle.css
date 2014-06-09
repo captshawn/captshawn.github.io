@@ -781,13 +781,13 @@ body.three-column {}
 .sidebar.left{}
 
 /* Common One Column Selectors */
-body.site-pages.one-column, 
+body.site-page.one-column, 
 body.landing-page.one-column, 
 body.error-template.one-column, 
 body.password-template.one-column, 
 body.subscription-template.one-column {}
 
-body.site-pages.one-column .main-content, 
+body.site-page.one-column .main-content, 
 body.landing-page.one-column .main-content, 
 body.error-template .main-content, 
 body.password-template .main-content, 
