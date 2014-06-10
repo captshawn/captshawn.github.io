@@ -798,8 +798,7 @@ body.site-page.two-column,
 body.landing-page.two-column, 
 body.blog {}  
 
-body.site-page.two-column 
-body.main-content, 
+body.site-page.two-column .main-content, 
 body.landing-page.two-column .main-content, 
 body.blog .blog-content {}
 
