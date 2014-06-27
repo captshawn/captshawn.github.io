@@ -121,9 +121,10 @@
 /** 
   * Create jinja macros for CSS3 properties that need browser prefixes.
   *
-  * Apply the style as shown below.  Ignore the jinja comment tags. 
+  * Apply the style as shown below on it's own CSS property line.  
+  * Ignore the jinja comment tags. 
   *
-  * {#  property: {{ variableName("values") }}  #}
+  * {#  {{ variableName("values") }}  #}
   */
 
 {% macro transition(value) -%} 
