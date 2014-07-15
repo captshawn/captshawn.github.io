@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.3.0                                
+   HS COS Boilerplate v1.4.0                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -418,6 +418,13 @@ q:before, q:after, blockquote:before, blockquote:after {}
   width: auto !important;
 }
 
+/* Fix menu disappearing on desktop after toggling mobile menu */
+@media screen and (min-width:768px) {
+      .custom-menu-primary .hs-menu-wrapper { 
+          display:block !important;
+      }
+  }
+
 
 
 
@@ -492,119 +499,71 @@ q:before, q:after, blockquote:before, blockquote:after {}
      ========================================================================== */
 
   .mobile-trigger{
-    display: inline-block !important; /* Hide button on Desktop */
+    display: inline-block !important; /* Show button on mobile */
     cursor: pointer; /* Mouse pointer type on hover */
     position: absolute; /*******************************************/
-    top: 0px;          /* Position Button at top right of screen  */
+    top: 0px;          /* Position Button at right of screen  */
     right: 10px;        /*******************************************/
     width: auto; /* Button width */
     height: auto; /* Button height */      
-    padding: 12px 10px;
-    background:{{ menuColorMobile }}; /* Background color */
-    z-index: 99999999999; /* Z-index to keep button on top of other layers */
-    -webkit-transition: background-color 0.2s linear; /* Button color transition effect */
+    padding: 7px 10px 8px 10px;
+    background: #ffffff; /* Background color */
+    border: 1px solid {{ menuColorMobile }};
     font-size: 16px;
     font-weight: normal;
     text-align: left;
     text-transform: uppercase;
-    -webkit-border-bottom-right-radius: 6px;
-    -webkit-border-bottom-left-radius: 6px;
-    -moz-border-radius-bottomright: 6px;
-    -moz-border-radius-bottomleft: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    -webkit-transition:color .2s ease-in; 
-    -moz-transition:color .2s ease-in;
-    transition:color .2s ease-in;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: {{ menuColorMobile }}; 
   }
   .mobile-trigger:hover{
     text-decoration: none; /* Removes link text underline on button */
     color:{{ aColorHoverMobile }};
-  }
-  .mobile-trigger span{
-    display: inline;
-  }
-  .mobile-trigger span:before{
-    position: absolute;
-    content: 'Menu'; /* Change the text on the closed toggle button */
-  }
-  .mobile-trigger span:after{
-    position: relative;
-    right: 2px;
-    content: 'Close'; /* Change the text on the open toggle button */
-    background-color: {{ menuColorMobile }};
-    opacity: 0;
-    transition: opacity .4s ease-in-out;
-    -moz-transition: opacity .4s ease-in-out;
-    -webkit-transition: opacity .4s ease-in-out; 
+    background-color: {{ menuColorMobile }}; 
+    border-color: transparent;
   }
 
   /* Change button when menu is open */
   .mobile-open .mobile-trigger{
-    -webkit-transition:background-color 0.2s linear; /* Button color transition effect */
-    -moz-transition:background-color 0.2s linear; /* Button color transition effect */
-    transition:background-color 0.2s linear; /* Button color transition effect */
-    background: transparent; /* Changes button background to be slightly darker than open menu color */  
-  }
-  .mobile-open .mobile-trigger span:after{
-    opacity: 1; 
+    color:{{ aColorHoverMobile }};
+    background-color: {{ menuColorMobile }}; 
+    border-color: transparent;
   }
 
 
-  /* Toggle Button Icon & Animations
+  /* Toggle Button Icon
      ========================================================================== */
 
   .mobile-trigger i{
     display: inline;
     position: relative;
-    top: -5px;
-    margin-left: 5px;
-    -webkit-transition-duration: 0s;
-    -webkit-transition-delay: .2s;
-    -moz-transition-duration: 0s;
-    -moz-transition-delay: .2s;
-    transition-duration: 0s;
-    transition-delay: .2s;
+    top: -4px;
   }
   .mobile-trigger i:before, .mobile-trigger i:after{
     position: absolute;
     content: '';
   }
   .mobile-trigger i, .mobile-trigger i:before, .mobile-trigger i:after{
-    width: 15px; /* Icon line width */
+    width: 22px; /* Icon line width */
     height: 2px; /* Icon line height */
-    background-color: {{ aColorMobile }}; /* Icon color */
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    background-color: {{ menuColorMobile }}; /* Icon color */
     display: inline-block;
   }
   .mobile-trigger i:before{
-    margin-top: -6px; /* Position top line */
-    -webkit-transition-property: margin, -webkit-transform;
-    -webkit-transition-duration: .2s;
-    -webkit-transition-delay: .2s, 0;
+    top: -6px; /* Position top line */
   }
   .mobile-trigger i:after{
-    margin-top: 6px; /* Position bottom line */
-    -webkit-transition-property: margin, -webkit-transform;
-    -webkit-transition-duration: .2s;
-    -webkit-transition-delay: .2s, 0;
+    top: 6px; /* Position bottom line */
   }
-  .mobile-open .mobile-trigger i{
-    background-color: rgba(0,0,0,0.0);
-    -webkit-transition-delay: .2s;
-  }
-  .mobile-open .mobile-trigger i:before{
-    margin-top: 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    -webkit-transition-delay: 0, .2s;
-  }
-  .mobile-open .mobile-trigger i:after{
-    margin-top: 0;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-transition-delay: 0, .2s;
+  
+  .mobile-trigger:hover i, .mobile-trigger:hover i:before, .mobile-trigger:hover i:after,  
+  .mobile-open .mobile-trigger i, .mobile-open .mobile-trigger i:before, .mobile-open .mobile-trigger i:after{
+      background-color: {{ aColorHoverMobile }}; /* Icon color */
   }
 
 
@@ -626,57 +585,46 @@ q:before, q:after, blockquote:before, blockquote:after {}
   .child-trigger:hover{
     text-decoration: none;
   }
-
-
-  /* Child Toggle Button Icon & Animations
-     ========================================================================== */
-
-  .child-trigger span{
+  .child-trigger i{
     position: relative;
     top: 50%; /* Centers icon inside button */
     margin: 0 auto !important;
-    -webkit-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    transition-duration: .2s;
   }
-  .child-trigger span:after{
+  .child-trigger i:after{
     position: absolute;
     content: '';
   }
-  .child-trigger span, .child-trigger span:after{
+  .child-trigger i, .child-trigger i:after{
     width: 10px; /* Icon line width */
     height: 1px; /* Icon line height */
     background-color:{{ aColorMobile }}; /* Icon color */
     display: block;
   }
-  .child-trigger span:after{
+  .child-trigger i:after{
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    -webkit-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    transition-duration: .2s;
   }
-  .child-trigger.child-open span:after{
+  .child-trigger.child-open i:after{
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg);
-    -webkit-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    transition-duration: .2s;
   }
-  .child-trigger.child-open span{
+  .child-trigger.child-open i{
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-    -webkit-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    transition-duration: .2s;
   }
 
     
   /* Menu Styles on Mobile Devices
      ========================================================================== */  
+     
+   .custom-menu-primary.js-enabled{
+       position: relative;
+       padding-top: 44px; /* Makes room for button */
+       margin: 10px 0 10px 0;
+   }
 
   /* Hide menu on mobile */
   .custom-menu-primary.js-enabled .hs-menu-wrapper,
@@ -692,21 +640,17 @@ q:before, q:after, blockquote:before, blockquote:after {}
     display: none;
   }
 
-  /* Mobile Menu Styles */
+  /* Mobile Menu Styles */ 
   .custom-menu-primary.js-enabled .hs-menu-wrapper{
-    position: absolute; /**************************************************************/
+    width: 100%;
+    position: relative; /**************************************************************/
     top: 0;             /* Positions the menu to drop from the very top of the screen */
-    left: 0px;          /**************************************************************/                                              
-    width: 100%;   
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.65);
-    -moz-box-shadow:    0px 5px 5px 0px rgba(0, 0, 0, 0.65);
-    box-shadow:         0px 5px 5px 0px rgba(0, 0, 0, 0.65); 
+    left: 0;          /**************************************************************/
+    padding: 0;
   }
   .custom-menu-primary .hs-menu-wrapper{
-    padding: 40px 0 0 0; /* Padding to add room for close button */
-    background-color:{{ menuColorMobile }}; /* Menu background color set off global mobile-menuColor variable */
+    background-color:{{ menuColorMobile }}; /* Menu background color set off global menuColorMobile variable */
     width: 100%; /* Full screen width */
-    z-index: 8888;
   }
 
    /* Level 1 Menu List Styles */
@@ -747,7 +691,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
   .custom-menu-primary .hs-menu-wrapper > ul ul ul ul li a{
     text-indent: 50px; /* Indent Child lists */
   }
-
 }
 
 

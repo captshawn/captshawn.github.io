@@ -7,8 +7,15 @@ $(function() {
      */
 
     $('.custom-menu-primary').addClass('js-enabled');
-    $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger"><span></span><i></i></div>');
-    $('.custom-menu-primary .flyouts .hs-item-has-children > a').after(' <div class="child-trigger"><span></span></div>');
+    
+    /* Mobile button with three lines icon */
+        $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger"><i></i></div>');
+        
+    /* Uncomment for mobile button that says 'MENU' 
+        $('.custom-menu-primary .hs-menu-wrapper').before('<div class="mobile-trigger">MENU</div>');
+    */
+    
+    $('.custom-menu-primary .flyouts .hs-item-has-children > a').after(' <div class="child-trigger"><i></i></div>');
     $('.mobile-trigger').click(function() {
         $(this).next('.custom-menu-primary .hs-menu-wrapper').slideToggle(250);
         $('body').toggleClass('mobile-open');
