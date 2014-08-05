@@ -557,3 +557,16 @@ table pre {
 .hs_cos_wrapper_type_page_footer {
     word-wrap: break-word;
 }
+
+@media all and (max-width: 400px) {
+/* beat recaptcha into being responsive, !importants and specificity are necessary */
+#captcha_wrapper,
+#recaptcha_area,
+#recaptcha_area table#recaptcha_table,
+#recaptcha_area table#recaptcha_table .recaptcha_r1_c1
+{ width: auto !important; overflow: hidden; }
+#recaptcha_area table#recaptcha_table .recaptcha_r4_c4
+{ width: 67px !important; }
+#recaptcha_area table#recaptcha_table #recaptcha_image
+{ width:280px !important; }
+}
