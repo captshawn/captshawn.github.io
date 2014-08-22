@@ -1149,7 +1149,10 @@ body .hs-common-error-message {}
 #hs_form_target_blog_subscription input[type="email"] {}
 #hs_form_target_blog_subscription input[type="email"]:focus {}
 
-#hs_form_target_blog_subscription input[type="radio"] {}
+#hs_form_target_blog_subscription input[type="radio"], #hs_form_target_blog_subscription input[type="checkbox"] {
+width: auto;
+margin-right: 10px;
+}
 
 
 /* Google Search Form
