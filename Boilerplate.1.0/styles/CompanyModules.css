@@ -371,6 +371,13 @@ select {
     background-image: url("//static.hubspot.com/final/img/common/icons/social/googleplus-24x24.png");
 }
 
+/* Fix for CTA border box issue */
+.hs-cta-wrapper a {
+box-sizing: content-box;
+-moz-box-sizing: content-box;
+-webkit-box-sizing: content-box;
+}
+
 /*
  * jQuery FlexSlider v2.0
  * http://www.woothemes.com/flexslider/
