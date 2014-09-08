@@ -206,6 +206,10 @@ a:hover, a:focus { color: {{ linkHover }}; }
   text-shadow: none;
 }
 
+/* Corrects width issues in table elements created via the wysiwyg editor */
+table tr td img {
+    max-width: initial;
+}
 
 
 
