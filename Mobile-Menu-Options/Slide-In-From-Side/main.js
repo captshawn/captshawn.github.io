@@ -23,7 +23,6 @@ $(function() {
 	   $(".custom-menu-primary").height(height);
 	}
 	setMenuHeight();
-	$(window).resize(setMenuHeight);
 	
 	// Wrap body contents with a div so the transforms will work
     $('body> div').find("script").remove().end().wrapAll('<div id="site-wrapper"></div>');
