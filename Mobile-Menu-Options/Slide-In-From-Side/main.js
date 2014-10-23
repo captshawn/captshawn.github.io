@@ -25,7 +25,7 @@ $(function() {
 	setMenuHeight();
 	
 	// Wrap body contents with a div so the transforms will work
-    $('body> div').find("script").remove().end().wrapAll('<div id="site-wrapper"></div>');
+    $('body> div').find('script:not(script[type="IN/Share"])').remove().end().wrapAll('<div id="site-wrapper"></div>');
     
 
 });
