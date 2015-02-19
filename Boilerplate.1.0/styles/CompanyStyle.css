@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.4.0                                
+   HS COS Boilerplate v1.5.0                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -193,6 +193,13 @@ body {
 
 a { color: {{ linkColor }}; }
 a:hover, a:focus { color: {{ linkHover }}; }
+
+hr {
+  color: #ccc;
+  background-color: #ccc;
+  height: 1px;
+  border: none;
+}
 
 /* Highlighted Text */
 ::-moz-selection {
@@ -865,16 +872,18 @@ body.hs-blog-listing {}
 .blog-post-wrapper {}
 
 /* Blog Title */
+.hs-blog-header h1 {}
 .hs-blog-header h1 a{}
 
 /* Blog Post Title */
+.post-header h2 {}
 .post-header h2 a {}
 
 /* Blog Author and Avatar */
 #hubspot-author_data {}
 #hubspot-author_data a.author-link {}
-.hs-author-avatar {}
-.hs-author-avatar img {}
+#hubspot-author_data .hs-author-avatar {}
+#hubspot-author_data .hs-author-avatar img {}
 
 /* Use this to set up different styling for your blog posts */
 .blog-listing-wrapper .post-listing .post-item {}
@@ -937,10 +946,35 @@ a.more-link {}
 
 /* Pagination */
 .blog-pagination {}
-.blog-pagination .previous-posts-link {}
-.blog-pagination .all-posts-link {}
-.blog-pagination .next-posts-link {}
+.blog-pagination a {}
+.blog-pagination a.previous-posts-link {}
+.blog-pagination a.all-posts-link {}
+.blog-pagination a.next-posts-link {}
 
+/** 
+ * Blog Author Page 
+ *
+ * ALWAYS be sure to set styles to these selectors, as the COS does not provide default styles
+ */
+
+.hs-author-profile {}
+.hs-author-profile h2.hs-author-name {}
+.hs-author-profile .hs-author-bio {}
+.hs-author-profile .hs-author-avatar {}
+.hs-author-profile .hs-author-avatar img {}
+h3.hs-author-listing-header {}
+
+/** 
+ * Blog All Posts Page
+ *
+ * ALWAYS be sure to set styles to these selectors, as the COS does not provide default styles
+ */
+
+body.hs-content-path-blog-all {}
+div.post-listing-simple {}
+div.post-listing-simple .post-item {}
+h2.post-listing-simple {}
+h2.post-listing-simple a {}
 
 
 /* Blog Sidebar

@@ -21,9 +21,11 @@ img.alignLeft{
 /* Blog Social Sharing */
 .hs-blog-social-share .hs-blog-social-share-list {
   margin: 0;
+  list-style: none !important;
 }
 .hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item {
   height: 30px;
+  list-style: none !important;
 }
 @media (max-width: 479px){
 .hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item:nth-child(2) {
@@ -31,7 +33,13 @@ img.alignLeft{
   }
 }
 .hs-blog-social-share .hs-blog-social-share-list .hs-blog-social-share-item .fb-like > span{
-  vertical-align: top !important; /* Aligns Facebook icon with other social media icons */
+    vertical-align: top !important; /* Aligns Facebook icon with other social media icons */
+}
+
+/* Captcha */
+#recaptcha_response_field {
+    width: auto !important;
+    display: inline-block !important;
 }
 
 /* Videos */
