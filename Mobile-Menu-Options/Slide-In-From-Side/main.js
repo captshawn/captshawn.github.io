@@ -19,10 +19,13 @@ $(function() {
 	 
 	// Set the menu height to 100% of the document
 	function setMenuHeight(){
-	   var height = $(document).outerHeight(true);
-	   $(".custom-menu-primary").height(height);
+		if ( $(window).width() < 767) {     
+	      	var height = $(document).outerHeight(true);
+		   	$(".custom-menu-primary").height(height);
+		}   
 	}
 	setMenuHeight();
+	$(window).on("resize", setMenuHeight);
 	
 	// Wrap body contents with a div so the transforms will work
     $('body> div').find('script:not(script[type="IN/Share"])').remove().end().wrapAll('<div id="site-wrapper"></div>');
