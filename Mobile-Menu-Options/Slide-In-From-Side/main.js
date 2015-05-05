@@ -19,7 +19,7 @@ $(function() {
 	 
 	// Set the menu height to 100% of the document
 	function setMenuHeight(){
-		if ( $(window).width() < 767) {     
+		if ( $(window).width() <= 767) {     
 	      	var height = $(document).outerHeight(true);
 		   	$(".custom-menu-primary").height(height);
 		}   
