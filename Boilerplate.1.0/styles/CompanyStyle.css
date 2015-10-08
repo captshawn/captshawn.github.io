@@ -8,7 +8,7 @@
 
 
 /* ==========================================================================
-   HS COS Boilerplate v1.5.0                                
+   HS COS Boilerplate v1.5.1                                
    ========================================================================== */
 
 /* This responsive framework is required for all styles. */
@@ -600,6 +600,9 @@ q:before, q:after, blockquote:before, blockquote:after {}
     position: relative;
     top: 50%; /* Centers icon inside button */
     margin: 0 auto !important;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   .child-trigger i:after{
     position: absolute;
@@ -610,6 +613,7 @@ q:before, q:after, blockquote:before, blockquote:after {}
     height: 1px; /* Icon line height */
     background-color:{{ aColorMobile }}; /* Icon color */
     display: block;
+
   }
   .child-trigger i:after{
     -webkit-transform: rotate(-90deg);
@@ -622,9 +626,6 @@ q:before, q:after, blockquote:before, blockquote:after {}
     transform: rotate(-180deg);
   }
   .child-trigger.child-open i{
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
   }
 
     
