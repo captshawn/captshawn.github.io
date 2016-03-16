@@ -13,10 +13,10 @@
 
 /* This responsive framework is required for all styles. */
 {% include "hubspot/styles/responsive/required_base.css" %}
-{% include "custom/page/Company_Theme/CompanyModules.css" %}
+{% include "custom/page/company-theme/company-modules.css" %}
 
 /* These includes are optional, but helpful. */
-{% include "hubspot/styles/patches/recommended.css" %} 
+{% include "hubspot/styles/patches/recommended.css" %}
 
 
 
