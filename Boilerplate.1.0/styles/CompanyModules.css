@@ -483,14 +483,14 @@ html[xmlns] .hs_cos_flex-slides {display: block;}
 }
 
 .hs_cos_flex-slider .caption {
-    background-color: black;
-    position: static;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
     font-size: 2em;
     line-height: 1.1em;
     color: white;
-    padding: 0px 5% 0px 5%;
+    padding: 0 5% 0 5%;
     width: 100%;
-    top: 40%;
+    bottom: 0;
     text-align: center;
 }
 
